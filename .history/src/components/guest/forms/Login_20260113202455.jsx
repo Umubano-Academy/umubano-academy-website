@@ -26,7 +26,7 @@ function Login() {
   return (
     <div className="min-h-screen bg-orange-50 flex items-start justify-center px-4 py-4 pt-24">
       <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8">
-        <h2 className="text-3xl font-bold text-[#FFDE59] text-center mb-6">
+        <h2 className="text-3xl font-bold text-orange-500 text-center mb-6">
           Welcome Back
         </h2>
         <p className="text-gray-600 text-center mb-8">
@@ -74,7 +74,7 @@ function Login() {
               />
               <span>Remember me</span>
             </label>
-            <Link to="/password-reset" className="text-[#FFDE59] hover:underline">
+            <Link to="/password-reset" className="text-orange-500 hover:underline">
               Forgot password?
             </Link>
           </div>

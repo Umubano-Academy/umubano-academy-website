@@ -14,7 +14,7 @@ function ResetPassword() {
   return (
     <div className="min-h-screen bg-orange-50 flex items-start justify-center px-4 pt-24">
       <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8">
-        <h2 className="text-3xl font-bold text-[#FFDE59] text-center mb-6">
+        <h2 className="text-3xl font-bold text-orange-500 text-center mb-6">
           Reset Password
         </h2>
         <p className="text-gray-600 text-center mb-8">
@@ -50,7 +50,7 @@ function ResetPassword() {
 
             <button
               type="submit"
-              className="w-full  bg-[#0AB0EE] text-white py-3 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
+              className="w-full  bg-bg-[#0AB0EE] text-white py-3 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
             >
               Send New Password
             </button>

@@ -52,9 +52,11 @@ function About() {
               Our Vision
             </h4>
             <p className="text-gray-600">
-              We will achieve our Vision by…. … equipping girls and boys with
-              the critical thinking, cooperative learning, life skills, and
-              academic competencies to solve problems.
+
+
+              
+             To create the next generation of Rwandan leaders, to empower them to create a better
+future for themselves and the country.
             </p>
           </motion.div>
 
@@ -72,8 +74,7 @@ function About() {
               Our Mission
             </h4>
             <p className="text-gray-600">
-              To create the next generation of Rwandan leaders, to empower them
-              to create a better future for themselves and the country.
+            
             </p>
           </motion.div>
         </motion.div>

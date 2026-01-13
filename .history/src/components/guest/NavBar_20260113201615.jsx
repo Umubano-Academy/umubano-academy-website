@@ -13,7 +13,7 @@ function NavBar() {
     { name: "Academics", type: "route", path: "/academic" },
     { name: "Admissions", type: "route", path: "/admissions" },
     { name: "News", type: "id", path: "news" },
-    { name: "Events&Gallery", type: "id", path: "events" },
+    { name: "Events&Galla", type: "id", path: "events" },
     { name: "Contact", type: "id", path: "contact" },
   ];
 

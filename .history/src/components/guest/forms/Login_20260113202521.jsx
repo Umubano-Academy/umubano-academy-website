@@ -74,7 +74,7 @@ function Login() {
               />
               <span>Remember me</span>
             </label>
-            <Link to="/password-reset" className="text-[#FFDE59] hover:underline">
+            <Link to="/password-reset" className="text-orange-500 hover:underline">
               Forgot password?
             </Link>
           </div>
