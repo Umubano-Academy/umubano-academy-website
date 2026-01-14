@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu, X, } from "lucide-react";
+import { Menu, X, Phone, Mail, GraduationCap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../../assets/UALOGO.png";
 import { Link } from "react-router-dom";
@@ -20,16 +20,20 @@ function NavBar() {
   return (
     <>
       {/* Top Info Bar */}
-      <div className="hidden md:flex justify-between items-center px-8 py-2 bg-[#FFDE59]  text-sm">
-        <div className="flex items-center gap-4">
-          <span className="flex items-center gap-1 text-xl text-black font-bold">
-            782029655
+      <div className="hidden md:flex justify-between items-center px-8 py-2 bg-[#FFDE59] text-sm">
+        <div className="flex items-center gap-6">
+          <span className="flex items-center gap-2 text-xl text-black font-bold">
+            <Phone size={20} className="text-[#7ED956]" />
+            +250 782029655
           </span>
-          <span className="flex text-xl items-center gap-1  text-black font-bold">
+
+          <span className="flex items-center gap-2 text-xl text-black font-bold">
+            <Mail size={20} className="text-[#7ED956]" />
             info@umubanoacademy.rw
           </span>
         </div>
-        <span className=" text-xl  text-black font-bold">
+
+        <span className="text-xl text-black font-bold">
           Excellence in Education
         </span>
       </div>
