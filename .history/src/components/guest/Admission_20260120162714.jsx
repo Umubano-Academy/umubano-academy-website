@@ -40,7 +40,60 @@ const toggle = (i) => {
     },
   ]
 
-   const programmes = [
+  const requirements = [
+    "Completed admission application form",
+    "Copy of birth certificate",
+    "Previous school report or academic records",
+    "Two recent passport-size photographs",
+    "Transfer letter (if applicable)",
+    "Parent or guardian identification copy",
+  ]
+
+  const dates = [
+    { title: "Applications Open", date: "01 June 2026" },
+    { title: "Application Deadline", date: "30 July 2026" },
+    { title: "Next Term Begins", date: "10 September 2026" },
+  ]
+
+  const programmes = [
+    { name: "General Scholarship programme", type: "Scholarship" },
+    { name: "Girl Circle Scholarship programme", type: "Scholarship" },
+    { name: "Inclusion and Special Education Needs (SEN)", type: "Special Needs" },
+    { name: "Whole School feeding programme", type: "Programmes" },
+    { name: "After school care", type: "Extra-Curricular" },
+    { name: "Summer camp", type: "Extra-Curricular" },
+    { name: "Learning tours", type: "Extra-Curricular" },
+    { name: "School Infrastructural project", type: "Infrastructure" },
+    { name: "Library project", type: "Infrastructure" },
+    { name: "Creative Arts project", type: "Extra-Curricular" },
+    { name: "Southhampstead High School: Think Global Act Local project", type: "Programmes" },
+    { name: "Grille Foundation - ICT in classrooms", type: "Infrastructure" },
+    { name: "Lef Pillon Foundation : SEN & UA Leadership Funding", type: "Special Needs" },
+    { name: "Science Room", type: "Infrastructure" },
+    { name: "Girls Room", type: "Infrastructure" },
+    { name: "Water purifying and dining project", type: "Infrastructure" },
+    { name: "Teacher Training (CPD)", type: "CPD" },
+    { name: "UA Leadership Training", type: "CPD" },
+  ]
+
+  const apieProjects = [
+    { name: "Enhancing Quality Instructions in Pre-primary (EQUIP) (Emilie)", type: "Programmes" },
+    { name: "Education for Positive Peace (E4PP) (Emilie)", type: "Programmes" },
+    { name: "Maximising Potential (MaxPo) pilot (Emilie)", type: "Programmes" },
+    { name: "Personal Social Health and Education (PSHE) Syllabus (Emilie)", type: "Programmes" },
+  ]
+
+  const typeColors = {
+    Scholarship: "bg-yellow-200 text-yellow-800",
+    "Special Needs": "bg-red-200 text-red-800",
+    Programmes: "bg-blue-200 text-blue-800",
+    Infrastructure: "bg-green-200 text-green-800",
+    "Extra-Curricular": "bg-purple-200 text-purple-800",
+    CPD: "bg-pink-200 text-pink-800",
+  }
+
+
+  const programmes = [
   {
     name: "General Scholarship programme",
     type: "Scholarship",
@@ -63,61 +116,6 @@ const toggle = (i) => {
   },
   // continue for others...
 ]
-
-  const requirements = [
-    "Completed admission application form",
-    "Copy of birth certificate",
-    "Previous school report or academic records",
-    "Two recent passport-size photographs",
-    "Transfer letter (if applicable)",
-    "Parent or guardian identification copy",
-  ]
-
-  const dates = [
-    { title: "Applications Open", date: "01 June 2026" },
-    { title: "Application Deadline", date: "30 July 2026" },
-    { title: "Next Term Begins", date: "10 September 2026" },
-  ]
-
-  // const programmes = [
-  //   { name: "General Scholarship programme", type: "Scholarship" },
-  //   { name: "Girl Circle Scholarship programme", type: "Scholarship" },
-  //   { name: "Inclusion and Special Education Needs (SEN)", type: "Special Needs" },
-  //   { name: "Whole School feeding programme", type: "Programmes" },
-  //   { name: "After school care", type: "Extra-Curricular" },
-  //   { name: "Summer camp", type: "Extra-Curricular" },
-  //   { name: "Learning tours", type: "Extra-Curricular" },
-  //   { name: "School Infrastructural project", type: "Infrastructure" },
-  //   { name: "Library project", type: "Infrastructure" },
-  //   { name: "Creative Arts project", type: "Extra-Curricular" },
-  //   { name: "Southhampstead High School: Think Global Act Local project", type: "Programmes" },
-  //   { name: "Grille Foundation - ICT in classrooms", type: "Infrastructure" },
-  //   { name: "Lef Pillon Foundation : SEN & UA Leadership Funding", type: "Special Needs" },
-  //   { name: "Science Room", type: "Infrastructure" },
-  //   { name: "Girls Room", type: "Infrastructure" },
-  //   { name: "Water purifying and dining project", type: "Infrastructure" },
-  //   { name: "Teacher Training (CPD)", type: "CPD" },
-  //   { name: "UA Leadership Training", type: "CPD" },
-  // ]
-
-  const apieProjects = [
-    { name: "Enhancing Quality Instructions in Pre-primary (EQUIP) (Emilie)", type: "Programmes" },
-    { name: "Education for Positive Peace (E4PP) (Emilie)", type: "Programmes" },
-    { name: "Maximising Potential (MaxPo) pilot (Emilie)", type: "Programmes" },
-    { name: "Personal Social Health and Education (PSHE) Syllabus (Emilie)", type: "Programmes" },
-  ]
-
-  const typeColors = {
-    Scholarship: "bg-yellow-200 text-yellow-800",
-    "Special Needs": "bg-red-200 text-red-800",
-    Programmes: "bg-blue-200 text-blue-800",
-    Infrastructure: "bg-green-200 text-green-800",
-    "Extra-Curricular": "bg-purple-200 text-purple-800",
-    CPD: "bg-pink-200 text-pink-800",
-  }
-
-
- 
 
 
   return (

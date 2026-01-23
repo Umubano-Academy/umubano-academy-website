@@ -1,18 +1,12 @@
-
+import React from "react"
 import { motion } from "framer-motion"
 import { FileText, ClipboardCheck, UserCheck, School } from "lucide-react"
 import { Link } from "react-router-dom"
 import finance from "../../assets/Office-Finance-Officer (Acting).jpeg"
-import { useState } from "react"
+import {  } from "react"
 
 
 function Admission() {
-
-  const [openIndex, setOpenIndex] = useState(null)
-
-const toggle = (i) => {
-  setOpenIndex(openIndex === i ? null : i)
-}
   const steps = [
     {
       title: "Application Submission",
@@ -40,7 +34,60 @@ const toggle = (i) => {
     },
   ]
 
-   const programmes = [
+  const requirements = [
+    "Completed admission application form",
+    "Copy of birth certificate",
+    "Previous school report or academic records",
+    "Two recent passport-size photographs",
+    "Transfer letter (if applicable)",
+    "Parent or guardian identification copy",
+  ]
+
+  const dates = [
+    { title: "Applications Open", date: "01 June 2026" },
+    { title: "Application Deadline", date: "30 July 2026" },
+    { title: "Next Term Begins", date: "10 September 2026" },
+  ]
+
+  const programmes = [
+    { name: "General Scholarship programme", type: "Scholarship" },
+    { name: "Girl Circle Scholarship programme", type: "Scholarship" },
+    { name: "Inclusion and Special Education Needs (SEN)", type: "Special Needs" },
+    { name: "Whole School feeding programme", type: "Programmes" },
+    { name: "After school care", type: "Extra-Curricular" },
+    { name: "Summer camp", type: "Extra-Curricular" },
+    { name: "Learning tours", type: "Extra-Curricular" },
+    { name: "School Infrastructural project", type: "Infrastructure" },
+    { name: "Library project", type: "Infrastructure" },
+    { name: "Creative Arts project", type: "Extra-Curricular" },
+    { name: "Southhampstead High School: Think Global Act Local project", type: "Programmes" },
+    { name: "Grille Foundation - ICT in classrooms", type: "Infrastructure" },
+    { name: "Lef Pillon Foundation : SEN & UA Leadership Funding", type: "Special Needs" },
+    { name: "Science Room", type: "Infrastructure" },
+    { name: "Girls Room", type: "Infrastructure" },
+    { name: "Water purifying and dining project", type: "Infrastructure" },
+    { name: "Teacher Training (CPD)", type: "CPD" },
+    { name: "UA Leadership Training", type: "CPD" },
+  ]
+
+  const apieProjects = [
+    { name: "Enhancing Quality Instructions in Pre-primary (EQUIP) (Emilie)", type: "Programmes" },
+    { name: "Education for Positive Peace (E4PP) (Emilie)", type: "Programmes" },
+    { name: "Maximising Potential (MaxPo) pilot (Emilie)", type: "Programmes" },
+    { name: "Personal Social Health and Education (PSHE) Syllabus (Emilie)", type: "Programmes" },
+  ]
+
+  const typeColors = {
+    Scholarship: "bg-yellow-200 text-yellow-800",
+    "Special Needs": "bg-red-200 text-red-800",
+    Programmes: "bg-blue-200 text-blue-800",
+    Infrastructure: "bg-green-200 text-green-800",
+    "Extra-Curricular": "bg-purple-200 text-purple-800",
+    CPD: "bg-pink-200 text-pink-800",
+  }
+
+
+  const programmes = [
   {
     name: "General Scholarship programme",
     type: "Scholarship",
@@ -63,61 +110,6 @@ const toggle = (i) => {
   },
   // continue for others...
 ]
-
-  const requirements = [
-    "Completed admission application form",
-    "Copy of birth certificate",
-    "Previous school report or academic records",
-    "Two recent passport-size photographs",
-    "Transfer letter (if applicable)",
-    "Parent or guardian identification copy",
-  ]
-
-  const dates = [
-    { title: "Applications Open", date: "01 June 2026" },
-    { title: "Application Deadline", date: "30 July 2026" },
-    { title: "Next Term Begins", date: "10 September 2026" },
-  ]
-
-  // const programmes = [
-  //   { name: "General Scholarship programme", type: "Scholarship" },
-  //   { name: "Girl Circle Scholarship programme", type: "Scholarship" },
-  //   { name: "Inclusion and Special Education Needs (SEN)", type: "Special Needs" },
-  //   { name: "Whole School feeding programme", type: "Programmes" },
-  //   { name: "After school care", type: "Extra-Curricular" },
-  //   { name: "Summer camp", type: "Extra-Curricular" },
-  //   { name: "Learning tours", type: "Extra-Curricular" },
-  //   { name: "School Infrastructural project", type: "Infrastructure" },
-  //   { name: "Library project", type: "Infrastructure" },
-  //   { name: "Creative Arts project", type: "Extra-Curricular" },
-  //   { name: "Southhampstead High School: Think Global Act Local project", type: "Programmes" },
-  //   { name: "Grille Foundation - ICT in classrooms", type: "Infrastructure" },
-  //   { name: "Lef Pillon Foundation : SEN & UA Leadership Funding", type: "Special Needs" },
-  //   { name: "Science Room", type: "Infrastructure" },
-  //   { name: "Girls Room", type: "Infrastructure" },
-  //   { name: "Water purifying and dining project", type: "Infrastructure" },
-  //   { name: "Teacher Training (CPD)", type: "CPD" },
-  //   { name: "UA Leadership Training", type: "CPD" },
-  // ]
-
-  const apieProjects = [
-    { name: "Enhancing Quality Instructions in Pre-primary (EQUIP) (Emilie)", type: "Programmes" },
-    { name: "Education for Positive Peace (E4PP) (Emilie)", type: "Programmes" },
-    { name: "Maximising Potential (MaxPo) pilot (Emilie)", type: "Programmes" },
-    { name: "Personal Social Health and Education (PSHE) Syllabus (Emilie)", type: "Programmes" },
-  ]
-
-  const typeColors = {
-    Scholarship: "bg-yellow-200 text-yellow-800",
-    "Special Needs": "bg-red-200 text-red-800",
-    Programmes: "bg-blue-200 text-blue-800",
-    Infrastructure: "bg-green-200 text-green-800",
-    "Extra-Curricular": "bg-purple-200 text-purple-800",
-    CPD: "bg-pink-200 text-pink-800",
-  }
-
-
- 
 
 
   return (
@@ -272,46 +264,63 @@ const toggle = (i) => {
         </motion.div>
 
         {/* Programmes & Projects Table with Badges */}
-        {/* Programmes & Projects - Accordion Style */}
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.6 }}
-  className="mb-24"
->
-  <h3 className="text-3xl font-bold text-[#7ED956] mb-8 text-center">
-    Programmes and Projects at Umubano Academy
-  </h3>
-
-  <div className="space-y-4 max-w-4xl mx-auto">
-    {programmes.map((item, i) => (
-      <div key={i} className="border rounded-2xl shadow-sm overflow-hidden">
-        <button
-          onClick={() => toggle(i)}
-          className="w-full flex justify-between items-center p-5 bg-gray-50 hover:bg-gray-100 text-left"
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-24 overflow-x-auto"
         >
-          <div>
-            <h4 className="font-semibold text-blue-900">{item.name}</h4>
-            <span className={`mt-1 inline-block px-3 py-1 rounded-full text-sm font-semibold ${typeColors[item.type]}`}>
-              {item.type}
-            </span>
-          </div>
-          <span className="text-2xl font-bold text-gray-500">
-            {openIndex === i ? "−" : "+"}
-          </span>
-        </button>
-
-        {openIndex === i && (
-          <div className="p-5 bg-white text-gray-700">
-            {item.description}
-          </div>
-        )}
-      </div>
-    ))}
-  </div>
-</motion.div>
-
+          <h3 className="text-3xl font-bold text-[#7ED956] mb-8 text-center">
+            Programmes and Projects at Umubano Academy
+          </h3>
+          <table className="min-w-full bg-white rounded-2xl shadow-lg overflow-hidden">
+            <thead className="bg-[#0AB0EE] text-white">
+              <tr>
+                <th className="p-4 text-left">#</th>
+                <th className="p-4 text-left">Programme / Project</th>
+                <th className="p-4 text-left">Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              {programmes.map((item, i) => (
+                <motion.tr
+                  key={i}
+                  whileHover={{ scale: 1.02, backgroundColor: "#f0fdf4" }}
+                  className={`border-b transition-colors duration-300 ${i % 2 === 0 ? "bg-gray-50" : "bg-white"}`}
+                >
+                  <td className="p-4 font-semibold">{i + 1}</td>
+                  <td className="p-4">{item.name}</td>
+                  <td className="p-4">
+                    <span className={`px-3 py-1 rounded-full text-sm font-semibold ${typeColors[item.type]}`}>
+                      {item.type}
+                    </span>
+                  </td>
+                </motion.tr>
+              ))}
+              <tr className="bg-gray-100">
+                <td colSpan={3} className="p-4 font-bold text-blue-900 text-center">
+                  APIE Projects Piloted at Umubano Academy
+                </td>
+              </tr>
+              {apieProjects.map((item, i) => (
+                <motion.tr
+                  key={i}
+                  whileHover={{ scale: 1.02, backgroundColor: "#eef6ff" }}
+                  className={`border-b transition-colors duration-300 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
+                >
+                  <td className="p-4 font-semibold">-</td>
+                  <td className="p-4">{item.name}</td>
+                  <td className="p-4">
+                    <span className={`px-3 py-1 rounded-full text-sm font-semibold ${typeColors[item.type]}`}>
+                      {item.type}
+                    </span>
+                  </td>
+                </motion.tr>
+              ))}
+            </tbody>
+          </table>
+        </motion.div>
 
       </div>
     </section>

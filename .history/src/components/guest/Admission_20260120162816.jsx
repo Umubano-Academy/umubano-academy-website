@@ -79,26 +79,26 @@ const toggle = (i) => {
     { title: "Next Term Begins", date: "10 September 2026" },
   ]
 
-  // const programmes = [
-  //   { name: "General Scholarship programme", type: "Scholarship" },
-  //   { name: "Girl Circle Scholarship programme", type: "Scholarship" },
-  //   { name: "Inclusion and Special Education Needs (SEN)", type: "Special Needs" },
-  //   { name: "Whole School feeding programme", type: "Programmes" },
-  //   { name: "After school care", type: "Extra-Curricular" },
-  //   { name: "Summer camp", type: "Extra-Curricular" },
-  //   { name: "Learning tours", type: "Extra-Curricular" },
-  //   { name: "School Infrastructural project", type: "Infrastructure" },
-  //   { name: "Library project", type: "Infrastructure" },
-  //   { name: "Creative Arts project", type: "Extra-Curricular" },
-  //   { name: "Southhampstead High School: Think Global Act Local project", type: "Programmes" },
-  //   { name: "Grille Foundation - ICT in classrooms", type: "Infrastructure" },
-  //   { name: "Lef Pillon Foundation : SEN & UA Leadership Funding", type: "Special Needs" },
-  //   { name: "Science Room", type: "Infrastructure" },
-  //   { name: "Girls Room", type: "Infrastructure" },
-  //   { name: "Water purifying and dining project", type: "Infrastructure" },
-  //   { name: "Teacher Training (CPD)", type: "CPD" },
-  //   { name: "UA Leadership Training", type: "CPD" },
-  // ]
+  const programmes = [
+    { name: "General Scholarship programme", type: "Scholarship" },
+    { name: "Girl Circle Scholarship programme", type: "Scholarship" },
+    { name: "Inclusion and Special Education Needs (SEN)", type: "Special Needs" },
+    { name: "Whole School feeding programme", type: "Programmes" },
+    { name: "After school care", type: "Extra-Curricular" },
+    { name: "Summer camp", type: "Extra-Curricular" },
+    { name: "Learning tours", type: "Extra-Curricular" },
+    { name: "School Infrastructural project", type: "Infrastructure" },
+    { name: "Library project", type: "Infrastructure" },
+    { name: "Creative Arts project", type: "Extra-Curricular" },
+    { name: "Southhampstead High School: Think Global Act Local project", type: "Programmes" },
+    { name: "Grille Foundation - ICT in classrooms", type: "Infrastructure" },
+    { name: "Lef Pillon Foundation : SEN & UA Leadership Funding", type: "Special Needs" },
+    { name: "Science Room", type: "Infrastructure" },
+    { name: "Girls Room", type: "Infrastructure" },
+    { name: "Water purifying and dining project", type: "Infrastructure" },
+    { name: "Teacher Training (CPD)", type: "CPD" },
+    { name: "UA Leadership Training", type: "CPD" },
+  ]
 
   const apieProjects = [
     { name: "Enhancing Quality Instructions in Pre-primary (EQUIP) (Emilie)", type: "Programmes" },

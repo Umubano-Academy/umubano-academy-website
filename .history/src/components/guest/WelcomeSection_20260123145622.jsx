@@ -38,49 +38,46 @@ function WelcomeSection() {
       </div>
 
       {/* Welcome + Head Teacher Video */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-        {/* Left Side (smaller) */}
-        <div className="space-y-6">
-          <div className="flex flex-col gap-4">
-            <h2 className="text-3xl font-bold text-blue-900">
-              You are welcome to Umubano Academy!
-            </h2>
-            <p className="text-xl font-bold">
-              Umubano Academi--------------------
-            </p>
-          </div>
+<div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
 
-          <div className="flex gap-6 mt-4">
-            <Link
-              to="/aboutus"
-              className="flex items-center gap-2 text-blue-800 hover:text-[#0AB0EE]"
-            >
-              <Info className="w-5 h-5" />
-              About Us
-            </Link>
+  {/* Left Side (smaller) */}
+  <div className="space-y-6">
+    <div className="flex flex-col gap-4">
+      <h2 className="text-3xl font-bold text-blue-900">
+        You are welcome to Umubano Academy!
+      </h2>
+      <p className="text-xl font-bold">
+        Umubano Academi--------------------
+      </p>
+    </div>
 
-            <Link
-              to="/aboutus"
-              className="flex items-center gap-2 text-blue-800 hover:text-[#0AB0EE]"
-            >
-              <Heart className="w-5 h-5" />
-              Our Values
-            </Link>
-          </div>
-        </div>
+    <div className="flex gap-6 mt-4">
+      <Link to="/aboutus" className="flex items-center gap-2 text-blue-800 hover:text-[#0AB0EE]">
+        <Info className="w-5 h-5" />
+        About Us
+      </Link>
 
-        {/* Right Side – Bigger Video */}
-        <div className="w-full h-[400px] lg:col-span-2 rounded-2xl overflow-hidden shadow-xl">
-          <video
-            className="w-full h-full object-cover"
-            src={headteacherVideo}
-            controls
-            autoPlay
-            muted
-            loop
-          />
-        </div>
-      </div>
+      <Link to="/aboutus" className="flex items-center gap-2 text-blue-800 hover:text-[#0AB0EE]">
+        <Heart className="w-5 h-5" />
+        Our Values
+      </Link>
+    </div>
+  </div>
+
+  {/* Right Side – Bigger Video */}
+  <div className="w-full h-[400px] lg:col-span-2 rounded-2xl overflow-hidden shadow-xl">
+    <video
+      className="w-full h-full object-cover"
+      src={headteacherVideo}
+      controls
+      autoPlay
+      muted
+      loop
+    />
+  </div>
+
+</div>
+
     </section>
   );
 }

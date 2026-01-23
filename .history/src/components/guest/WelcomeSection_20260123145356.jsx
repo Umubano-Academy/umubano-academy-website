@@ -38,18 +38,19 @@ function WelcomeSection() {
       </div>
 
       {/* Welcome + Head Teacher Video */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-        {/* Left Side (smaller) */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Left Side */}
         <div className="space-y-6">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col space-x-2 gap-4">
             <h2 className="text-3xl font-bold text-blue-900">
               You are welcome to Umubano Academy!
             </h2>
-            <p className="text-xl font-bold">
+            <p className=" text-xl font bold ">
               Umubano Academi--------------------
             </p>
           </div>
 
+          {/* Small Icon Links */}
           <div className="flex gap-6 mt-4">
             <Link
               to="/aboutus"
@@ -69,11 +70,11 @@ function WelcomeSection() {
           </div>
         </div>
 
-        {/* Right Side – Bigger Video */}
-        <div className="w-full h-[400px] lg:col-span-2 rounded-2xl overflow-hidden shadow-xl">
+        {/* Right Side – Head Teacher Video */}
+        <div className="w-full h-[320px] rounded-2xl overflow-hidden shadow-xl">
           <video
             className="w-full h-full object-cover"
-            src={headteacherVideo}
+            src={headTeacherVideo}
             controls
             autoPlay
             muted
