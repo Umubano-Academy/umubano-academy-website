@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { School, Info, Heart } from "lucide-react";
-import nurseryImg from "../../assets/gallery/image7.jpg";
-import primaryImg from "../../assets/gallery/image5.jpg";
-import secondaryImg from "../../assets/gallery/image1.jpg";
+import nurseryImg from "../../assets/gallery/image7.JPG";
+import primaryImg from "../../assets/gallery/image5.JPG";
+import secondaryImg from "../../assets/gallery/image1.JPG";
 import headteacherVideo from "../../assets/headvideo.mp4";
 
 function WelcomeSection() {

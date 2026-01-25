@@ -3,9 +3,8 @@ import { motion } from "framer-motion";
 import { Users, BookOpen } from "lucide-react";
 
 // Leadership photos (you can replace with real ones later)
-import headImg from "../../assets/head.jpg";
-import chair from "../../assets/Chair-of-the-UOB.jpg";
-import deputy from "../../assets/Deputy Head-Teacher.jpg";
+import headImg from "../../assets/head.JPG";
+import deputy from "../../assets/Deputy Head-Teacher.JPG";
 import finance from "../../assets/Office-Finance-Officer (Acting).jpeg";
 
 // value, mission, vission
