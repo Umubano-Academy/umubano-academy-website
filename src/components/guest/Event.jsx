@@ -6,12 +6,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // Example images
-import Image1 from "../../assets/gallery/image1.jpg";
-import Image2 from "../../assets/gallery/image2.jpg";
-import Image3 from "../../assets/gallery/image3.jpg";
-import Image4 from "../../assets/gallery/image4.jpg";
-import Image5 from "../../assets/gallery/image5.jpg";
-import Image6 from "../../assets/gallery/image6.jpg";
+import image1 from "../../assets/gallery/image1.JPG";
+import image2 from "../../assets/gallery/image2.JPG";
+import image3 from "../../assets/gallery/image3.JPG";
+import image4 from "../../assets/gallery/image4.JPG";
+import image5 from "../../assets/gallery/image5.JPG";
+import image6 from "../../assets/gallery/image6.JPG";
 
 // Custom arrow components
 const NextArrow = ({ onClick }) => (
@@ -37,17 +37,17 @@ function Event() {
     {
       title: "Academic Excellence Awards",
       description: "Celebrating outstanding academic performance and dedication to learning.",
-      images: [Image1, Image2],
+      images: [image1, image2],
     },
     {
       title: "Cultural & Talent Day",
       description: "Showcasing creativity, culture, and talent among our students.",
-      images: [Image3, Image4],
+      images: [image3, image4],
     },
     {
       title: "Sports & Physical Activities",
       description: "Encouraging teamwork, discipline, and physical well-being.",
-      images: [Image5, Image6],
+      images: [image5, image6],
     },
   ];
 

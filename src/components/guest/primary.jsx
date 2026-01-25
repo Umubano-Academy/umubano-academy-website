@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FileText } from "lucide-react";
-import primaryHeader from "../../assets/gallery/image6.jpg";
-import phaseLeader from "../../assets/gallery/image6.jpg";
+import primaryHeader from "../../assets/gallery/image6.JPG";
+import phaseLeader from "../../assets/gallery/image6.JPG";
 
 function Primary() {
   return (
