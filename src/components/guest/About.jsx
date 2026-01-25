@@ -34,13 +34,6 @@ function About() {
 
   const leadership = [
     {
-      title: "Chair person ",
-      name: "Prof. Ndabaga Eugene",
-      phone: "+250 780 893 652",
-      email: "ndabagav@yahoo.ie",
-      img: chair,
-    },
-    {
       title: "Head Teacher",
       name: "Robert Ukwiyimpundu",
       phone: "+250 783 523 189",
@@ -305,7 +298,7 @@ function About() {
             UA Leadership Team
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             {leadership.map((leader, i) => (
               <div
                 key={i}

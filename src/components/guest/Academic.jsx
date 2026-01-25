@@ -9,9 +9,9 @@ import secondaryPdf from "../../assets/addons/Secondary-Enrolment-Handout-2025-2
 import primaryPdf from "../../assets/addons/Primary-Enrolment-Handout-2025.pdf";
 
 // Images for school levels
-import nurseryImg from "../../assets/gallery/image_6.jpg";
-import primaryImg from "../../assets/gallery/image_6.jpg";
-import secondaryImg from "../../assets/gallery/image_6.jpg";
+import nurseryImg from "../../assets/gallery/image7.jpg";
+import primaryImg from "../../assets/gallery/image5.jpg";
+import secondaryImg from "../../assets/gallery/image1.jpg";
 
 // Partners logos
 import p1 from "../../assets/partners/AEGIS-TRUST.jpg";
@@ -95,6 +95,117 @@ function Academic() {
     { title: "Secondary", file: secondaryPdf },
   ];
 
+  const academicActivities = [
+    {
+      title: "Curriculum offered at Umubano Academy",
+      content: (
+        <>
+          <p>
+            At Umubano Academy we use the Rwandan Competence Based Curriculum
+            and embed international inputs such as ICT integration,
+            learner-centred approaches and creative arts.
+          </p>
+          <p className="mt-3">
+            The core purpose of UA is to provide an inclusive, rigorous learning
+            environment that develops motivated, creative and independent
+            learners with strong social values.
+          </p>
+          <p className="mt-3">
+            Teachers receive regular CPD, and parents are actively engaged
+            because children thrive best when parents and teachers work
+            together.
+          </p>
+          <p className="mt-3">
+            At the core of our ethos is the belief that each child is unique and
+            should be viewed from a strengths-based perspective.
+          </p>
+        </>
+      ),
+    },
+    {
+      title: "Co-curricular Activities",
+      content: (
+        <ul className="list-disc pl-6 space-y-2">
+          <li>
+            <strong>Free Space:</strong> Mentorship for boys and girls
+            separately.
+          </li>
+          <li>
+            <strong>Circle Meetings:</strong> House-based learner meetings led
+            by P6 and S3 leaders.
+          </li>
+          <li>
+            <strong>Whole School House System:</strong> Promotes belonging,
+            leadership and role models.
+          </li>
+          <li>Itorero – Rwandan cultural values and patriotism</li>
+          <li>Clubs and Sports</li>
+          <li>Creative Arts</li>
+          <li>Trips and Outings</li>
+          <li>Careers Guidance</li>
+          <li>Guest Speakers</li>
+          <li>Competitions and Special Performances</li>
+        </ul>
+      ),
+    },
+    {
+      title: "Teaching and Learning Approaches",
+      content: (
+        <>
+          <p>
+            Teaching and learning at UA is learner-centred and aligned with the
+            Competence-Based Curriculum.
+          </p>
+          <p className="mt-3">
+            Education for Positive Peace strategies help learners grow
+            holistically.
+          </p>
+          <p className="mt-3">
+            Inclusive planning, differentiation and data-driven instruction
+            ensure no learner is left behind.
+          </p>
+        </>
+      ),
+    },
+    {
+      title: "Assessments",
+      content: (
+        <>
+          <p>
+            Assessment is an integral part of instruction and guides decisions
+            for learners, teachers and parents.
+          </p>
+          <ul className="list-disc pl-6 mt-3 space-y-2">
+            <li>Assessment for learning</li>
+            <li>Assessment of learning (mid-term, end-of-unit, end-of-term)</li>
+            <li>
+              Term one set by school, term two by district, term three by NESA
+              (except candidate classes)
+            </li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      title: "Personalised Target Setting and Progress Tracking",
+      content: (
+        <>
+          <p>
+            Teachers use prior attainment data to set ambitious but realistic
+            targets for every learner.
+          </p>
+          <p className="mt-3">
+            Targets are based on 5 core subjects at Primary level and 9 at Lower
+            Secondary level.
+          </p>
+          <p className="mt-3 font-semibold">
+            Learners never set failing targets — targets must motivate success.
+          </p>
+        </>
+      ),
+    },
+  ];
+
   return (
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
@@ -160,7 +271,9 @@ function Academic() {
           transition={{ duration: 0.6 }}
           className="bg-[#0AB0EE] rounded-3xl p-10 text-white"
         >
-          <h3 className="text-3xl font-bold mb-8">Teaching and Learning Resources and Approaches</h3>
+          <h3 className="text-3xl font-bold mb-8">
+            Teaching and Learning Resources and Approaches
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {addons.map((item, index) => (
               <a
@@ -179,50 +292,37 @@ function Academic() {
           </div>
         </motion.div>
 
-        {/* New Sections */}
-        <div className="space-y-12 mb-16 py-14">
-          <div>
-            <h2 className="text-2xl font-bold text-[#7ED956] mb-2">
-              Curriculum offered at Umubano Academy
-            </h2>
-            <p className="text-gray-700">
-              Our curriculum integrates academic rigor, co-curricular
-              activities, and personalized learning strategies to ensure all
-              students reach their potential.
-            </p>
-          </div>
+        {/* Activities Section – Accordion Style */}
+        <div className="max-w-4xl mx-auto mb-16 py-14">
+          <h2 className="text-3xl font-bold text-center text-[#0AB0EE] mb-10">
+            Teaching, Learning and Student Development
+          </h2>
 
-          <div>
-            <h2 className="text-2xl font-bold text-[#7ED956] mb-2">
-              Assessment Approaches
-            </h2>
-            <p className="text-gray-700">
-              We use continuous assessment, projects, and personalized feedback
-              to track progress and support every child’s development.
-            </p>
-          </div>
+          <div className="space-y-4">
+            {academicActivities.map((item, index) => (
+              <motion.details
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="group bg-white rounded-2xl shadow-md p-6"
+              >
+                <summary className="cursor-pointer list-none flex justify-between items-center text-lg font-semibold text-[#7ED956]">
+                  {item.title}
+                  <span className="transition-transform group-open:rotate-180">
+                    ⌄
+                  </span>
+                </summary>
 
-          <div>
-            <h2 className="text-2xl font-bold text-[#7ED956] mb-2">
-              Co-curricular activities
-            </h2>
-            <p className="text-gray-700">
-              Students enjoy sports, music, arts, and community service to
-              develop creativity, teamwork, and leadership skills.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-2xl font-bold text-[#7ED956] mb-2">
-              Approaches to Teaching and Learning
-            </h2>
-            <p className="text-gray-700">
-              Our teaching is child-centered, inclusive, and uses modern
-              technology and methods to encourage critical thinking and
-              problem-solving.
-            </p>
+                <div className="mt-4 text-gray-700 leading-relaxed">
+                  {item.content}
+                </div>
+              </motion.details>
+            ))}
           </div>
         </div>
+        {/* End Activities Section */}
 
         {/* School Levels Table */}
         <div className="overflow-x-auto mb-12">
@@ -256,26 +356,33 @@ function Academic() {
         </div>
 
         {/* School Levels Images */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {schoolLevels.map((level) => (
-            <Link
-              key={level.name}
-              to={level.link}
-              className="group relative block"
-            >
-              <img
-                src={level.img}
-                alt={level.name}
-                className="w-full h-56 object-cover rounded-2xl transition group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/25 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                <span className="text-white text-xl font-semibold">
-                  {level.name}
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
+<div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+  {schoolLevels.map((level) => (
+    <Link
+      key={level.name}
+      to={level.link}
+      className="group block"
+    >
+      <div className="overflow-hidden rounded-2xl">
+        <img
+          src={level.img}
+          alt={level.name}
+          className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+
+      <div className="mt-4 text-center">
+        <h4 className="text-xl font-semibold text-[#0AB0EE]">
+          {level.name}
+        </h4>
+        <p className="text-sm text-gray-600">
+          {level.grade} · {level.age}
+        </p>
+      </div>
+    </Link>
+  ))}
+</div>
+
 
         {/* Our Partners */}
         <motion.div
