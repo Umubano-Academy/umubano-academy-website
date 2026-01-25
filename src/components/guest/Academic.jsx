@@ -9,9 +9,9 @@ import secondaryPdf from "../../assets/addons/Secondary-Enrolment-Handout-2025-2
 import primaryPdf from "../../assets/addons/Primary-Enrolment-Handout-2025.pdf";
 
 // Images for school levels
-import nurseryImg from "../../assets/gallery/image7.jpg";
-import primaryImg from "../../assets/gallery/image5.jpg";
-import secondaryImg from "../../assets/gallery/image1.jpg";
+import nurseryImg from "../../assets/gallery/image7.JPG";
+import primaryImg from "../../assets/gallery/image5.JPG";
+import secondaryImg from "../../assets/gallery/image1.JPG";
 
 // Partners logos
 import p1 from "../../assets/partners/AEGIS-TRUST.jpg";
