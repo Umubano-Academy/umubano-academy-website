@@ -6,12 +6,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // Example images
-import Image1 from "../../assets/gallery/image_1.jpg";
-import Image2 from "../../assets/gallery/image_2.jpg";
-import Image3 from "../../assets/gallery/image_3.jpg";
-import Image4 from "../../assets/gallery/image_4.jpg";
-import Image5 from "../../assets/gallery/image_5.jpg";
-import Image6 from "../../assets/gallery/image_6.jpg";
+import Image1 from "../../assets/gallery/image1.jpg";
+import Image2 from "../../assets/gallery/image2.jpg";
+import Image3 from "../../assets/gallery/image3.jpg";
+import Image4 from "../../assets/gallery/image4.jpg";
+import Image5 from "../../assets/gallery/image5.jpg";
+import Image6 from "../../assets/gallery/image6.jpg";
 
 // Custom arrow components
 const NextArrow = ({ onClick }) => (
