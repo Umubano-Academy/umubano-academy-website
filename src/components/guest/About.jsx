@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Users, BookOpen } from "lucide-react";
+import { Users, BookOpen, ChevronDown } from "lucide-react";
 
 // Leadership photos (you can replace with real ones later)
 import headImg from "../../assets/head.JPG";
 import deputy from "../../assets/Deputy Head-Teacher.JPG";
 import finance from "../../assets/Office-Finance-Officer (Acting).jpeg";
+import chair from "../../assets/Chair-of-the-UOB.jpg";
 
 // value, mission, vission
 
@@ -25,11 +26,31 @@ import p8 from "../../assets/partners/REB.png";
 import p9 from "../../assets/partners/SHHS.png";
 import p10 from "../../assets/partners/Souter-Foundation.jpg";
 import p11 from "../../assets/partners/The-Big-Give.png";
-import p12 from "../../assets/partners/UA-LOGO.png";
 import p13 from "../../assets/partners/Victoria-League.jpg";
 
+function AccordionItem({ policy }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="border-b border-gray-200">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex justify-between items-center py-4 text-left focus:outline-none"
+      >
+        <span className="font-semibold text-gray-800">{policy.title}</span>
+        <ChevronDown
+          className={`h-5 w-5 text-gray-500 transition-transform duration-300 ${
+            open ? "rotate-180" : "rotate-0"
+          }`}
+        />
+      </button>
+      {open && <p className="text-gray-600 pb-4">{policy.description}</p>}
+    </div>
+  );
+}
+
 function About() {
-  const partners = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13];
+  const partners = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p13];
 
   const leadership = [
     {
@@ -103,7 +124,6 @@ function About() {
             practices.
           </p>
         </motion.div>
-
         {/* Vision & Mission */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24"
@@ -167,7 +187,6 @@ function About() {
             </ul>
           </motion.div>
         </motion.div>
-
         {/* Values */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -212,7 +231,6 @@ function About() {
             </li>
           </ul>
         </motion.div>
-
         {/* School Governance */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -221,7 +239,7 @@ function About() {
           transition={{ duration: 0.6 }}
           className="bg-white rounded-3xl shadow-lg p-12"
         >
-          <h3 className="text-3xl font-bold text-[#7ED956] mb-4 text-center">
+          <h3 className="text-3xl font-bold text-[#7ED956] mb-6 text-center">
             School Governance
           </h3>
           <p className="text-gray-600 mb-4">
@@ -236,18 +254,31 @@ function About() {
             <li>Support orphans and vulnerable children</li>
             <li>Promote teacher training and education development</li>
           </ul>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-600 mb-6">
             Umubano Organisation owns Umubano Academy and governs it through its
             Board of nine members.
           </p>
-          <div className="bg-gray-100 p-6 rounded-xl">
-            <p className="font-semibold">Chairperson of Umubano Organisation</p>
-            <p>Prof. Ndabaga Eugene</p>
-            <p>Phone: +250 780 893 652</p>
-            <p>Email: ndabagav@yahoo.ie</p>
+
+          {/* Chairperson card */}
+          <div className="bg-gray-100 p-6 rounded-xl flex flex-col md:flex-row items-center gap-6 shadow-lg">
+            <img
+              src={chair}
+              alt="Chairperson Prof. Ndabaga Eugene"
+              className="w-40 h-56 object-cover rounded-xl shadow-md"
+            />
+
+            <div className="text-center md:text-left">
+              <p className="font-semibold text-lg">
+                Chairperson of Umubano Organisation
+              </p>
+              <p className="text-blue-900 font-bold text-xl">
+                Prof. Ndabaga Eugene
+              </p>
+              <p className="text-gray-600">Phone: +250 780 893 652</p>
+              <p className="text-gray-600">Email: ndabagav@yahoo.ie</p>
+            </div>
           </div>
         </motion.div>
-
         {/* Board Members & Committees */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -284,7 +315,6 @@ function About() {
             </table>
           </div>
         </motion.div>
-
         {/* School Leadership */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -320,7 +350,6 @@ function About() {
             ))}
           </div>
         </motion.div>
-
         {/* Our Partners */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -348,7 +377,6 @@ function About() {
             ))}
           </div>
         </motion.div>
-
         {/* Testimonials */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -383,7 +411,6 @@ function About() {
             ))}
           </div>
         </motion.div>
-
         {/* Our Alumni */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -426,15 +453,41 @@ function About() {
             Our Policies
           </h3>
 
-          <div className="bg-white rounded-3xl shadow-lg p-10">
-            <ul className="list-disc pl-6 text-gray-700 space-y-3 max-w-4xl mx-auto">
-              <li>Child protection and safeguarding policy</li>
-              <li>Anti-bullying policy</li>
-              <li>Health and safety policy</li>
-              <li>Academic integrity and discipline policy</li>
-              <li>Parent and community engagement policy</li>
-              <li>Equal opportunity and inclusion policy</li>
-            </ul>
+          <div className="bg-white rounded-3xl shadow-lg p-6 max-w-4xl mx-auto">
+            {[
+              {
+                title: "Child Protection and Safeguarding Policy",
+                description:
+                  "Ensures all children are protected from harm and abuse. Staff are trained to report and prevent any risks.",
+              },
+              {
+                title: "Anti-Bullying Policy",
+                description:
+                  "Promotes a safe and respectful environment. Incidents of bullying are taken seriously and addressed immediately.",
+              },
+              {
+                title: "Health and Safety Policy",
+                description:
+                  "Maintains a safe school environment with proper safety procedures, regular inspections, and first aid training.",
+              },
+              {
+                title: "Academic Integrity and Discipline Policy",
+                description:
+                  "Encourages honesty, responsibility, and ethical behavior in all academic activities.",
+              },
+              {
+                title: "Parent and Community Engagement Policy",
+                description:
+                  "Promotes active participation of parents and community members in school activities and decision-making.",
+              },
+              {
+                title: "Equal Opportunity and Inclusion Policy",
+                description:
+                  "Ensures all students have access to quality education regardless of background, gender, or ability.",
+              },
+            ].map((policy, i) => (
+              <AccordionItem key={i} policy={policy} />
+            ))}
           </div>
         </motion.div>
       </div>

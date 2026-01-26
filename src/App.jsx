@@ -14,6 +14,8 @@ import Dashboard from './components/admin/pages/Dashboard'
 import Login from './components/guest/forms/Login'
 import ResetPassword from './components/guest/forms/ResetPassword'
 import Primary from './components/guest/primary'
+import Nusary from './components/guest/Nusary'
+import Secondary from './components/guest/Secondary'
 
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
       <Route path='/login' element={<Login />} />
       <Route path="/password-reset" element={<ResetPassword />} />
       <Route path='/primary' element={<Primary />} />
+      <Route path='/nursery' element={<Nusary />} />
+      <Route path='/lower-secondary' element={<Secondary />} />
       </Route>
 
       <Route path='/admin' element={<LayOut />}>
