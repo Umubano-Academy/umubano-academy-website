@@ -15,9 +15,9 @@ function NavBar() {
       type: "dropdown",
       subLinks: [
         { name: "Teaching and Learning", path: "/academic" },
-        { name: "Nursery", path: "/education/nursery" },
+        { name: "Nursery", path: "/nursery" },
         { name: "Primary", path: "/primary" },
-        { name: "Lower Secondary", path: "/education/lower-secondary" },
+        { name: "Lower Secondary", path: "/lower-secondary" },
       ],
     },
     { name: "Admissions", type: "route", path: "/admissions" },

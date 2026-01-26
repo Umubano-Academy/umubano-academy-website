@@ -1,18 +1,21 @@
-
-import { motion } from "framer-motion"
-import { FileText, ClipboardCheck, UserCheck, School } from "lucide-react"
-import { Link } from "react-router-dom"
-import finance from "../../assets/Office-Finance-Officer (Acting).jpeg"
-import { useState } from "react"
-
+import { motion } from "framer-motion";
+import {
+  FileText,
+  ClipboardCheck,
+  UserCheck,
+  School,
+  ChevronDown,
+} from "lucide-react";
+import { Link } from "react-router-dom";
+import finance from "../../assets/Office-Finance-Officer (Acting).jpeg";
+import { useState } from "react";
 
 function Admission() {
+  const [openIndex, setOpenIndex] = useState(null);
 
-  const [openIndex, setOpenIndex] = useState(null)
-
-const toggle = (i) => {
-  setOpenIndex(openIndex === i ? null : i)
-}
+  const toggle = (i) => {
+    setOpenIndex(openIndex === i ? null : i);
+  };
   const steps = [
     {
       title: "Application Submission",
@@ -38,31 +41,35 @@ const toggle = (i) => {
         "Successful applicants receive an admission offer and complete enrollment.",
       icon: <School />,
     },
-  ]
+  ];
 
-   const programmes = [
-  {
-    name: "General Scholarship programme",
-    type: "Scholarship",
-    description: "Provides financial support to talented students from vulnerable families."
-  },
-  {
-    name: "Girl Circle Scholarship programme",
-    type: "Scholarship",
-    description: "Supports girls’ education through mentorship, fees support, and leadership training."
-  },
-  {
-    name: "Inclusion and Special Education Needs (SEN)",
-    type: "Special Needs",
-    description: "Ensures learners with special needs get tailored academic and emotional support."
-  },
-  {
-    name: "Whole School feeding programme",
-    type: "Programmes",
-    description: "Provides daily meals to improve attendance, health, and learning outcomes."
-  },
-  // continue for others...
-]
+  const programmes = [
+    {
+      name: "General Scholarship programme",
+      type: "Scholarship",
+      description:
+        "Provides financial support to talented students from vulnerable families.",
+    },
+    {
+      name: "Girl Circle Scholarship programme",
+      type: "Scholarship",
+      description:
+        "Supports girls’ education through mentorship, fees support, and leadership training.",
+    },
+    {
+      name: "Inclusion and Special Education Needs (SEN)",
+      type: "Special Needs",
+      description:
+        "Ensures learners with special needs get tailored academic and emotional support.",
+    },
+    {
+      name: "Whole School feeding programme",
+      type: "Programmes",
+      description:
+        "Provides daily meals to improve attendance, health, and learning outcomes.",
+    },
+    // continue for others...
+  ];
 
   const requirements = [
     "Completed admission application form",
@@ -71,13 +78,13 @@ const toggle = (i) => {
     "Two recent passport-size photographs",
     "Transfer letter (if applicable)",
     "Parent or guardian identification copy",
-  ]
+  ];
 
   const dates = [
     { title: "Applications Open", date: "01 June 2026" },
     { title: "Application Deadline", date: "30 July 2026" },
     { title: "Next Term Begins", date: "10 September 2026" },
-  ]
+  ];
 
   // const programmes = [
   //   { name: "General Scholarship programme", type: "Scholarship" },
@@ -101,11 +108,20 @@ const toggle = (i) => {
   // ]
 
   const apieProjects = [
-    { name: "Enhancing Quality Instructions in Pre-primary (EQUIP) (Emilie)", type: "Programmes" },
-    { name: "Education for Positive Peace (E4PP) (Emilie)", type: "Programmes" },
+    {
+      name: "Enhancing Quality Instructions in Pre-primary (EQUIP) (Emilie)",
+      type: "Programmes",
+    },
+    {
+      name: "Education for Positive Peace (E4PP) (Emilie)",
+      type: "Programmes",
+    },
     { name: "Maximising Potential (MaxPo) pilot (Emilie)", type: "Programmes" },
-    { name: "Personal Social Health and Education (PSHE) Syllabus (Emilie)", type: "Programmes" },
-  ]
+    {
+      name: "Personal Social Health and Education (PSHE) Syllabus (Emilie)",
+      type: "Programmes",
+    },
+  ];
 
   const typeColors = {
     Scholarship: "bg-yellow-200 text-yellow-800",
@@ -114,16 +130,11 @@ const toggle = (i) => {
     Infrastructure: "bg-green-200 text-green-800",
     "Extra-Curricular": "bg-purple-200 text-purple-800",
     CPD: "bg-pink-200 text-pink-800",
-  }
-
-
- 
-
+  };
 
   return (
     <section className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -136,17 +147,16 @@ const toggle = (i) => {
             Admission
           </h2>
           <p className="text-gray-600 text-lg">
-            Umubano Academy welcomes students who are eager to learn, grow,
-            and excel in a supportive and disciplined academic environment.
+            Umubano Academy welcomes students who are eager to learn, grow, and
+            excel in a supportive and disciplined academic environment.
           </p>
         </motion.div>
-
 
         {/* Admission Requirements + Download */}
 
         <h3 className="text-3xl font-bold text-[#0AB0EE] mb-8 text-center">
-              Admission Requirements
-            </h3>
+          Admission Requirements
+        </h3>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -170,7 +180,8 @@ const toggle = (i) => {
               Download Admission Requirements
             </h4>
             <p className="text-gray-200 text-lg mb-6">
-              Click the icon below to download the admission requirements document.
+              Click the icon below to download the admission requirements
+              document.
             </p>
             <a
               href="/docs/admission-requirements.pdf"
@@ -186,8 +197,8 @@ const toggle = (i) => {
         {/* Admission Process */}
 
         <h3 className="text-3xl font-bold text-[#0AB0EE] mb-8 text-center">
-              Admission Process
-            </h3>
+          Admission Process
+        </h3>
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -218,8 +229,6 @@ const toggle = (i) => {
           ))}
         </motion.div>
 
-        
-
         {/* Important Dates */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -233,7 +242,10 @@ const toggle = (i) => {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {dates.map((d, i) => (
-              <div key={i} className="bg-gray-50 p-8 rounded-2xl shadow-lg text-center">
+              <div
+                key={i}
+                className="bg-gray-50 p-8 rounded-2xl shadow-lg text-center"
+              >
                 <h4 className="font-semibold text-blue-900 text-lg mb-2">
                   {d.title}
                 </h4>
@@ -252,8 +264,8 @@ const toggle = (i) => {
           className="bg-white rounded-3xl shadow-lg p-12 mb-24"
         >
           <h3 className="text-3xl font-bold text-[#0AB0EE] mb-8 text-center">
-              Contact Person
-            </h3>
+            Contact Person
+          </h3>
           <div className="flex flex-col md:flex-row items-center gap-8 justify-center">
             <img
               src={finance}
@@ -266,56 +278,65 @@ const toggle = (i) => {
               </h4>
               <p className="text-gray-600 mb-2">Admissions Officer</p>
               <p className="text-gray-600">Phone: +250 782 029 655</p>
-              <p className="text-gray-600">Email: emilie@apertnerineducation.org</p>
+              <p className="text-gray-600">
+                Email: emilie@apertnerineducation.org
+              </p>
             </div>
           </div>
         </motion.div>
 
         {/* Programmes & Projects Table with Badges */}
         {/* Programmes & Projects - Accordion Style */}
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.6 }}
-  className="mb-24"
->
-  <h3 className="text-3xl font-bold text-[#7ED956] mb-8 text-center">
-    Programmes and Projects at Umubano Academy
-  </h3>
-
-  <div className="space-y-4 max-w-4xl mx-auto">
-    {programmes.map((item, i) => (
-      <div key={i} className="border rounded-2xl shadow-sm overflow-hidden">
-        <button
-          onClick={() => toggle(i)}
-          className="w-full flex justify-between items-center p-5 bg-gray-50 hover:bg-gray-100 text-left"
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-24"
         >
-          <div>
-            <h4 className="font-semibold text-blue-900">{item.name}</h4>
-            <span className={`mt-1 inline-block px-3 py-1 rounded-full text-sm font-semibold ${typeColors[item.type]}`}>
-              {item.type}
-            </span>
+          <h3 className="text-3xl font-bold text-[#7ED956] mb-8 text-center">
+            Programmes and Projects at Umubano Academy
+          </h3>
+
+          <div className="space-y-4 max-w-4xl mx-auto">
+            {programmes.map((item, i) => (
+              <div
+                key={i}
+                className="border rounded-2xl shadow-sm overflow-hidden"
+              >
+                <button
+                  onClick={() => toggle(i)}
+                  className="w-full flex justify-between items-center p-5 bg-gray-50 hover:bg-gray-100 text-left"
+                >
+                  <div>
+                    <h4 className="font-semibold text-blue-900">{item.name}</h4>
+                    <span
+                      className={`mt-1 inline-block px-3 py-1 rounded-full text-sm font-semibold ${typeColors[item.type]}`}
+                    >
+                      {item.type}
+                    </span>
+                  </div>
+                  {/* Replace the + / - with dropdown icon */}
+                  <ChevronDown
+                    className={`text-gray-500 transition-transform duration-300 ${
+                      openIndex === i ? "rotate-180" : "rotate-0"
+                    }`}
+                    size={24}
+                  />
+                </button>
+
+                {openIndex === i && (
+                  <div className="p-5 bg-white text-gray-700">
+                    {item.description}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-          <span className="text-2xl font-bold text-gray-500">
-            {openIndex === i ? "−" : "+"}
-          </span>
-        </button>
-
-        {openIndex === i && (
-          <div className="p-5 bg-white text-gray-700">
-            {item.description}
-          </div>
-        )}
-      </div>
-    ))}
-  </div>
-</motion.div>
-
-
+        </motion.div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Admission
+export default Admission;
