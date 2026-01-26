@@ -12,7 +12,7 @@ const menuData = [
   {
     id: "dashboard",
     title: "dashboard",
-    label: "Dashboard",
+    label: "News",
     path: "/admin",
     icon: LayoutDashboard,
   },

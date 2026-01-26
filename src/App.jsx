@@ -16,6 +16,8 @@ import ResetPassword from './components/guest/forms/ResetPassword'
 import Primary from './components/guest/primary'
 import Nusary from './components/guest/Nusary'
 import Secondary from './components/guest/Secondary'
+import CreateNews from './components/admin/sidebar/pages/news/CreateNews'
+import ViewDetails from './components/admin/sidebar/pages/news/ViewDetails'
 
 
 function App() {
@@ -37,6 +39,8 @@ function App() {
 
       <Route path='/admin' element={<LayOut />}>
       <Route index element={<Dashboard />} />
+      <Route path='createnews' element={<CreateNews />} />
+      <Route path='news/:id' element={<ViewDetails />} />
       </Route>
     </Routes>
     </BrowserRouter>

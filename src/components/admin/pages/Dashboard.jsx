@@ -1,151 +1,210 @@
-// import React from "react";
-// import { stats, bookingGraphData } from "./dashboardData";
-// import {
-//   Users,
-//   ShoppingBag,
-//   BadgeDollarSign,
-//   TrendingUp,
-// } from "lucide-react";
-// import {
-//   LineChart,
-//   Line,
-//   XAxis,
-//   YAxis,
-//   CartesianGrid,
-//   Tooltip,
-//   ResponsiveContainer,
-// } from "recharts";
-
-// function Dashboard() {
-//   return (
-//     <div className="p-6 space-y-6">
-
-//       <h1 className="text-2xl font-bold text-slate-800 dark:text-white">
-//         Dashboard Overview
-//       </h1>
-
-    
-//       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-//         {/* USERS CARD */}
-//         <div className="p-6 bg-white/80 dark:bg-slate-900/80 rounded-2xl shadow-lg border border-slate-200/50 dark:border-slate-700/50">
-//           <div className="flex items-center justify-between mb-3">
-//             <Users className="w-8 h-8 text-orange-500" />
-//             <span className="text-green-500 text-sm">{stats.users.growth}</span>
-//           </div>
-//           <h2 className="text-3xl font-bold dark:text-white">
-//             {stats.users.thisYear}
-//           </h2>
-//           <p className="text-slate-500 dark:text-slate-300 text-sm mt-1">
-//             Users This Year
-//           </p>
-//         </div>
-
-//         {/* BOOKINGS CARD */}
-//         <div className="p-6 bg-white/80 dark:bg-slate-900/80 rounded-2xl shadow-lg border border-slate-200/50 dark:border-slate-700/50">
-//           <div className="flex items-center justify-between mb-3">
-//             <ShoppingBag className="w-8 h-8 text-orange-500" />
-//             <span className="text-green-500 text-sm">+12%</span>
-//           </div>
-//           <h2 className="text-3xl font-bold dark:text-white">
-//             {stats.bookings.total}
-//           </h2>
-//           <p className="text-slate-500 dark:text-slate-300 text-sm mt-1">
-//             Total Bookings
-//           </p>
-//         </div>
-
-//         {/* REVENUE CARD */}
-//         <div className="p-6 bg-white/80 dark:bg-slate-900/80 rounded-2xl shadow-lg border border-slate-200/50 dark:border-slate-700/50">
-//           <div className="flex items-center justify-between mb-3">
-//             <BadgeDollarSign className="w-8 h-8 text-orange-500" />
-//             <span className="text-green-500 text-sm">{stats.revenue.growth}</span>
-//           </div>
-//           <h2 className="text-3xl font-bold dark:text-white">
-//             {stats.revenue.thisMonth.toLocaleString()} RWF
-//           </h2>
-//           <p className="text-slate-500 dark:text-slate-300 text-sm mt-1">
-//             Revenue This Month
-//           </p>
-//         </div>
-//       </div>
-
-//       {/* BOTTOM 3 SUMMARY CARDS */}
-//       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-//         {/* USER BREAKDOWN */}
-//         <div className="p-6 bg-white/80 dark:bg-slate-900/80 rounded-xl border border-slate-200/50 dark:border-slate-700/50">
-//           <h3 className="font-semibold dark:text-white mb-3">User Summary</h3>
-//           <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-300">
-//             <li>Today: {stats.users.today}</li>
-//             <li>Yesterday: {stats.users.yesterday}</li>
-//             <li>Last Week: {stats.users.lastWeek}</li>
-//             <li>Last Year: {stats.users.lastYear}</li>
-//           </ul>
-//         </div>
-
-//         {/* BOOKING BREAKDOWN */}
-//         <div className="p-6 bg-white/80 dark:bg-slate-900/80 rounded-xl border border-slate-200/50 dark:border-slate-700/50">
-//           <h3 className="font-semibold dark:text-white mb-3">Booking Summary</h3>
-//           <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-300">
-//             <li>Today: {stats.bookings.today}</li>
-//             <li>Pending: {stats.bookings.pending}</li>
-//             <li>Completed: {stats.bookings.completed}</li>
-//             <li>Cancelled: {stats.bookings.cancelled}</li>
-//           </ul>
-//         </div>
-
-//         {/* REVENUE BREAKDOWN */}
-//         <div className="p-6 bg-white/80 dark:bg-slate-900/80 rounded-xl border border-slate-200/50 dark:border-slate-700/50">
-//           <h3 className="font-semibold dark:text-white mb-3">Revenue Summary</h3>
-//           <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-300">
-//             <li>Total Revenue: {stats.revenue.total.toLocaleString()} RWF</li>
-//             <li>This Month: {stats.revenue.thisMonth.toLocaleString()} RWF</li>
-//             <li>Pending: {stats.revenue.pending.toLocaleString()} RWF</li>
-//             <li>Last Month: {stats.revenue.lastMonth.toLocaleString()} RWF</li>
-//           </ul>
-//         </div>
-//       </div>
-
-//       {/* BOOKINGS CHART */}
-//       <div className="p-6 bg-white/80 dark:bg-slate-900/80 border border-slate-200/50 dark:border-slate-700/50 rounded-xl shadow-md">
-//         <h2 className="text-lg font-bold mb-4 dark:text-white">
-//           Bookings This Week
-//         </h2>
-
-//         <ResponsiveContainer width="100%" height={300}>
-//           <LineChart data={bookingGraphData}>
-//             <CartesianGrid strokeDasharray="3 3" />
-//             <XAxis dataKey="day" />
-//             <YAxis />
-//             <Tooltip />
-//             <Line
-//               type="monotone"
-//               dataKey="bookings"
-//               stroke="#f97316" 
-//               strokeWidth={3}
-//             />
-//           </LineChart>
-//         </ResponsiveContainer>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Dashboard;
-
-
-
-
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { Eye, Pencil, Trash2, Plus } from "lucide-react";
+import api from "../../../services/api";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function Dashboard() {
+  const [news, setNews] = useState([]);
+  const [meta, setMeta] = useState({ page: 1, limit: 10, total: 0 });
+  const [loading, setLoading] = useState(false);
+  const [deletingId, setDeletingId] = useState(null);
+
+  const fetchNews = async (page = 1) => {
+    try {
+      setLoading(true);
+      const res = await api.get(`/api/news/?page=${page}&limit=${meta.limit}`);
+      setNews(res.data.items);
+      setMeta(res.data.meta);
+    } catch (error) {
+      console.error("Failed to load news", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchNews(meta.page);
+  }, []);
+
+  const totalPages = Math.ceil(meta.total / meta.limit);
+
+  // ======================
+  // DELETE NEWS
+  // ======================
+  const handleDelete = async (id) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "This news will be permanently deleted.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#6b7280",
+      confirmButtonText: "Yes, delete it",
+      cancelButtonText: "Cancel",
+    });
+
+    if (!result.isConfirmed) return;
+
+    try {
+      setDeletingId(id);
+      await api.delete(`/api/news/${id}`);
+
+      Swal.fire({
+        icon: "success",
+        title: "Deleted!",
+        text: "News deleted successfully",
+        timer: 1800,
+        showConfirmButton: false,
+      });
+
+      // Refresh list
+      fetchNews(meta.page);
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Failed to delete news",
+      });
+    } finally {
+      setDeletingId(null);
+    }
+  };
+
   return (
-    <div className=' text-white '>
-      Umubano Academy Admin Dashboard
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
+          <div>
+            <h2 className="text-3xl font-bold text-gray-900">
+              Umubano Academy News
+            </h2>
+            <p className="text-gray-500 mt-1">
+              Manage all published news and updates
+            </p>
+          </div>
+
+          <Link
+            to="/admin/createnews"
+            className="inline-flex items-center gap-2 bg-[#0AB0EE] text-white px-6 py-3 rounded-xl font-medium shadow hover:shadow-lg hover:scale-[1.02] transition"
+          >
+            <Plus size={18} />
+            Create News
+          </Link>
+        </div>
+
+        {/* Table */}
+        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+          <table className="w-full text-sm">
+            <thead className="bg-gray-50 border-b border-gray-100">
+              <tr className="text-gray-600 uppercase text-xs tracking-wide">
+                <th className="px-6 py-4 text-left">ID</th>
+                <th className="px-6 py-4 text-left">Title</th>
+                <th className="px-6 py-4 text-left">Content</th>
+                <th className="px-6 py-4 text-left">Created</th>
+                <th className="px-6 py-4 text-right">Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {loading ? (
+                <tr>
+                  <td colSpan="5" className="py-12 text-center text-gray-400">
+                    Loading news...
+                  </td>
+                </tr>
+              ) : news.length === 0 ? (
+                <tr>
+                  <td colSpan="5" className="py-12 text-center text-gray-400">
+                    No news available
+                  </td>
+                </tr>
+              ) : (
+                news.map((item) => (
+                  <tr
+                    key={item.ID}
+                    className="border-b last:border-none hover:bg-gray-50 transition"
+                  >
+                    <td className="px-6 py-4 font-semibold text-gray-500">
+                      #{item.ID}
+                    </td>
+
+                    <td className="px-6 py-4 font-medium text-gray-900">
+                      {item.Title}
+                    </td>
+
+                    <td className="px-6 py-4 text-gray-600 max-w-md">
+                      <p className="line-clamp-2">{item.Content}</p>
+                    </td>
+
+                    <td className="px-6 py-4 text-gray-500">
+                      {new Date(item.CreatedAt).toLocaleDateString()}
+                    </td>
+
+                    <td className="px-6 py-4">
+                      <div className="flex justify-end gap-2">
+                        <Link
+                          to={`/admin/news/${item.ID}`}
+                          title="View"
+                          className="p-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition"
+                        >
+                          <Eye size={16} />
+                        </Link>
+
+                        <button
+                          title="Edit"
+                          className="p-2 rounded-lg bg-green-50 text-green-600 hover:bg-green-100 transition"
+                        >
+                          <Pencil size={16} />
+                        </button>
+
+                        <button
+                          title="Delete"
+                          disabled={deletingId === item.ID}
+                          onClick={() => handleDelete(item.ID)}
+                          className="p-2 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 transition disabled:opacity-50"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-between mt-6">
+            <p className="text-sm text-gray-500">
+              Page {meta.page} of {totalPages}
+            </p>
+
+            <div className="flex gap-2">
+              <button
+                disabled={meta.page === 1}
+                onClick={() => fetchNews(meta.page - 1)}
+                className="px-4 py-2 rounded-lg border text-sm disabled:opacity-40 hover:bg-gray-100 transition"
+              >
+                Previous
+              </button>
+
+              <button
+                disabled={meta.page === totalPages}
+                onClick={() => fetchNews(meta.page + 1)}
+                className="px-4 py-2 rounded-lg border text-sm disabled:opacity-40 hover:bg-gray-100 transition"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
-  )
+  );
 }
 
-export default Dashboard
-
+export default Dashboard;

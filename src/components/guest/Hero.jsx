@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import headteacherVideo from "../../assets/headvideo.mp4";
+import headteacherVideo from "../../assets/homevideo.mp4";
 
 function Hero() {
   return (

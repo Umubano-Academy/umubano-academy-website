@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { Mail, Lock } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../../../services/api"
 
 function Login() {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -17,10 +22,34 @@ function Login() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login Data:", formData);
-    alert("Login submitted!");
+    setError("");
+    setLoading(true);
+
+    try {
+      const res = await api.post("/api/auth/login", {
+        email: formData.email,
+        password: formData.password,
+      });
+
+      // assuming backend returns { token, user }
+      const { token } = res.data;
+
+      if (formData.remember) {
+        localStorage.setItem("token", token);
+      } else {
+        sessionStorage.setItem("token", token);
+      }
+
+      navigate("/admin");
+    } catch (err) {
+      setError(
+        err.response?.data?.message || "Invalid email or password"
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -29,9 +58,16 @@ function Login() {
         <h2 className="text-3xl font-bold text-[#FFDE59] text-center mb-6">
           Welcome Back
         </h2>
+
         <p className="text-gray-600 text-center mb-8">
           Login to your account to continue
         </p>
+
+        {error && (
+          <div className="bg-red-100 text-red-700 p-3 rounded-xl mb-4 text-sm">
+            {error}
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Email */}
@@ -62,7 +98,7 @@ function Login() {
             />
           </div>
 
-          {/* Remember Me & Forgot Password */}
+          {/* Remember Me */}
           <div className="flex items-center justify-between text-sm">
             <label className="flex items-center space-x-2 text-gray-600">
               <input
@@ -70,21 +106,21 @@ function Login() {
                 name="remember"
                 checked={formData.remember}
                 onChange={handleChange}
-                className="form-checkbox h-4 w-4 text-orange-500"
               />
               <span>Remember me</span>
             </label>
+
             <Link to="/password-reset" className="text-[#FFDE59] hover:underline">
               Forgot password?
             </Link>
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-[#0AB0EE] text-white py-3 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
+            disabled={loading}
+            className="w-full bg-[#0AB0EE] text-white py-3 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition disabled:opacity-50"
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
       </div>
