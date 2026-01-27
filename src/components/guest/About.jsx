@@ -56,7 +56,7 @@ function About() {
   const toggle = (i) => {
     setOpenIndex(openIndex === i ? null : i);
   };
-  const partners = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p13];
+  const partners = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13];
 
   const programmes = [
     {

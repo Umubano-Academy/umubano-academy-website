@@ -13,9 +13,10 @@ import p8 from "../../assets/partners/REB.png";
 import p9 from "../../assets/partners/SHHS.png";
 import p10 from "../../assets/partners/Souter-Foundation.jpg";
 import p11 from "../../assets/partners/The-Big-Give.png";
+import p12 from "../../assets/partners/Victoria-League.jpg";
 
 function News() {
-  const partners = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11];
+  const partners = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12];
 
   const allNews = [
     {
