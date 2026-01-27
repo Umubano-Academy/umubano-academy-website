@@ -34,7 +34,7 @@ function Contact() {
               </div>
               <div>
                 <h4 className="text-lg font-semibold text-[#0AB0EE]">Phone Number</h4>
-                <p className="text-gray-600 mt-1">+250 782029655</p>
+                <p className="text-gray-600 mt-1">+250 783523189</p>
               </div>
             </div>
 
@@ -98,23 +98,38 @@ function Contact() {
         </div>
 
         {/* Map */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="rounded-3xl overflow-hidden shadow-2xl"
-        >
-          <iframe
-            title="Umubano Academy Location"
-            src="https://www.google.com/maps?q=Kabeza,Kicukiro,Kigali,Rwanda&output=embed"
-            width="100%"
-            height="450"
-            loading="lazy"
-            className="border-0"
-            allowFullScreen
-          ></iframe>
-        </motion.div>
+{/* Map */}
+{/* Map */}
+<motion.div
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6 }}
+  className="rounded-3xl overflow-hidden shadow-2xl"
+>
+  <iframe
+    title="Umubano Academy Location"
+    src="https://www.google.com/maps?q=24H9%2BR3%20Kigali&z=18&output=embed"
+    width="100%"
+    height="450"
+    loading="lazy"
+    className="border-0"
+    allowFullScreen
+  ></iframe>
+</motion.div>
+
+<a
+  href="https://maps.app.goo.gl/AkwAPM3iwwkm2sVt5"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block mt-6 bg-[#0AB0EE] text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
+>
+  Open in Google Maps
+</a>
+
+
+
+
       </div>
     </section>
   )

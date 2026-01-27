@@ -11,12 +11,12 @@ function WelcomeSection() {
       {/* 3 Education Levels */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
-          { title: "Nursery", img: nurseryImg, link: "/academic/nursery" },
+          { title: "Nursery", img: nurseryImg, link: "/nursery" },
           { title: "Primary", img: primaryImg, link: "/primary" },
           {
             title: "Lower Secondary",
             img: secondaryImg,
-            link: "/academic/lower-secondary",
+            link: "/lower-secondary",
           },
         ].map((item, i) => (
           <Link
@@ -38,7 +38,7 @@ function WelcomeSection() {
       </div>
 
       {/* Welcome + Head Teacher Video */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Left Side (smaller) */}
         <div className="space-y-6">
           <div className="flex flex-col gap-4">
@@ -53,19 +53,11 @@ function WelcomeSection() {
           <div className="flex gap-6 mt-4">
             <Link
               to="/aboutus"
-              className="flex items-center gap-2 text-blue-800 hover:text-[#0AB0EE]"
+              className="flex items-center text-xl gap-2 text-blue-800 hover:text-[#0AB0EE]"
             >
-              <Info className="w-5 h-5" />
               About Us
             </Link>
 
-            <Link
-              to="/aboutus"
-              className="flex items-center gap-2 text-blue-800 hover:text-[#0AB0EE]"
-            >
-              <Heart className="w-5 h-5" />
-              Our Values
-            </Link>
           </div>
         </div>
 

@@ -4,11 +4,9 @@ import {
   ClipboardCheck,
   UserCheck,
   School,
-  ChevronDown,
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import finance from "../../assets/Office-Finance-Officer (Acting).jpeg";
 import { useState } from "react";
+import finance from "../../assets/Office-Finance-Officer (Acting).jpeg";
 
 function Admission() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -16,6 +14,7 @@ function Admission() {
   const toggle = (i) => {
     setOpenIndex(openIndex === i ? null : i);
   };
+
   const steps = [
     {
       title: "Application Submission",
@@ -43,94 +42,11 @@ function Admission() {
     },
   ];
 
-  const programmes = [
-    {
-      name: "General Scholarship programme",
-      type: "Scholarship",
-      description:
-        "Provides financial support to talented students from vulnerable families.",
-    },
-    {
-      name: "Girl Circle Scholarship programme",
-      type: "Scholarship",
-      description:
-        "Supports girls’ education through mentorship, fees support, and leadership training.",
-    },
-    {
-      name: "Inclusion and Special Education Needs (SEN)",
-      type: "Special Needs",
-      description:
-        "Ensures learners with special needs get tailored academic and emotional support.",
-    },
-    {
-      name: "Whole School feeding programme",
-      type: "Programmes",
-      description:
-        "Provides daily meals to improve attendance, health, and learning outcomes.",
-    },
-    // continue for others...
-  ];
-
-  const requirements = [
-    "Completed admission application form",
-    "Copy of birth certificate",
-    "Previous school report or academic records",
-    "Two recent passport-size photographs",
-    "Transfer letter (if applicable)",
-    "Parent or guardian identification copy",
-  ];
-
   const dates = [
     { title: "Applications Open", date: "01 June 2026" },
     { title: "Application Deadline", date: "30 July 2026" },
     { title: "Next Term Begins", date: "10 September 2026" },
   ];
-
-  // const programmes = [
-  //   { name: "General Scholarship programme", type: "Scholarship" },
-  //   { name: "Girl Circle Scholarship programme", type: "Scholarship" },
-  //   { name: "Inclusion and Special Education Needs (SEN)", type: "Special Needs" },
-  //   { name: "Whole School feeding programme", type: "Programmes" },
-  //   { name: "After school care", type: "Extra-Curricular" },
-  //   { name: "Summer camp", type: "Extra-Curricular" },
-  //   { name: "Learning tours", type: "Extra-Curricular" },
-  //   { name: "School Infrastructural project", type: "Infrastructure" },
-  //   { name: "Library project", type: "Infrastructure" },
-  //   { name: "Creative Arts project", type: "Extra-Curricular" },
-  //   { name: "Southhampstead High School: Think Global Act Local project", type: "Programmes" },
-  //   { name: "Grille Foundation - ICT in classrooms", type: "Infrastructure" },
-  //   { name: "Lef Pillon Foundation : SEN & UA Leadership Funding", type: "Special Needs" },
-  //   { name: "Science Room", type: "Infrastructure" },
-  //   { name: "Girls Room", type: "Infrastructure" },
-  //   { name: "Water purifying and dining project", type: "Infrastructure" },
-  //   { name: "Teacher Training (CPD)", type: "CPD" },
-  //   { name: "UA Leadership Training", type: "CPD" },
-  // ]
-
-  const apieProjects = [
-    {
-      name: "Enhancing Quality Instructions in Pre-primary (EQUIP) (Emilie)",
-      type: "Programmes",
-    },
-    {
-      name: "Education for Positive Peace (E4PP) (Emilie)",
-      type: "Programmes",
-    },
-    { name: "Maximising Potential (MaxPo) pilot (Emilie)", type: "Programmes" },
-    {
-      name: "Personal Social Health and Education (PSHE) Syllabus (Emilie)",
-      type: "Programmes",
-    },
-  ];
-
-  const typeColors = {
-    Scholarship: "bg-yellow-200 text-yellow-800",
-    "Special Needs": "bg-red-200 text-red-800",
-    Programmes: "bg-blue-200 text-blue-800",
-    Infrastructure: "bg-green-200 text-green-800",
-    "Extra-Curricular": "bg-purple-200 text-purple-800",
-    CPD: "bg-pink-200 text-pink-800",
-  };
 
   return (
     <section className="py-10 bg-white">
@@ -152,50 +68,81 @@ function Admission() {
           </p>
         </motion.div>
 
-        {/* Admission Requirements + Download */}
-
+        {/* Admission Requirements */}
         <h3 className="text-3xl font-bold text-[#0AB0EE] mb-8 text-center">
           Admission Requirements
         </h3>
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-[#7ED956] rounded-3xl p-10 md:p-14 text-white grid grid-cols-1 md:grid-cols-2 gap-10 mb-24"
+          className="bg-[#7ED956] rounded-3xl p-10 md:p-14 text-white mb-8"
         >
-          <div>
-            <ul className="space-y-4">
-              {requirements.map((req, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <span className="text-yellow-400 text-xl font-bold">✓</span>
-                  <span className="text-xl">{req}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {/* Nursery */}
+            <div>
+              <h4 className="text-2xl font-bold mb-4 pb-2">
+                Nursery
+              </h4>
+              <ul className="space-y-2 text-white">
+                <li>Completed admission application form</li>
+                <li>Copy of birth certificate</li>
+                <li>Two recent passport-size photographs</li>
+              </ul>
+            </div>
 
-          <div className="flex flex-col justify-center">
-            <h4 className="text-2xl font-bold mb-4">
-              Download Admission Requirements
-            </h4>
-            <p className="text-gray-200 text-lg mb-6">
-              Click the icon below to download the admission requirements
-              document.
-            </p>
-            <a
-              href="/docs/admission-requirements.pdf"
-              download
-              className="flex items-center gap-3 bg-[#FFDE59] text-blue-900 px-6 py-4 rounded-xl font-semibold hover:bg-yellow-300 transition w-fit"
-            >
-              <FileText />
-              Download Admission Requirements / Babyeyi
-            </a>
+            {/* Primary */}
+            <div>
+              <h4 className="text-2xl font-bold mb-4  pb-2">
+                Primary
+              </h4>
+              <ul className="space-y-2 text-white">
+                <li>Completed admission application form</li>
+                <li>Copy of birth certificate</li>
+                <li>Previous school report</li>
+                <li>Two recent passport-size photographs</li>
+              </ul>
+            </div>
+
+            {/* Lower Secondary */}
+            <div>
+              <h4 className="text-2xl font-bold mb-4 pb-2">
+                Lower Secondary
+              </h4>
+              <ul className="space-y-2 text-white">
+                <li>Completed admission application form</li>
+                <li>Copy of birth certificate</li>
+                <li>Previous school report / Academic records</li>
+                <li>Transfer letter (if applicable)</li>
+                <li>Two recent passport-size photographs</li>
+              </ul>
+            </div>
           </div>
         </motion.div>
 
-        {/* Admission Process */}
+        {/* Download Links */}
+        <div className="flex flex-col md:flex-row gap-6 mb-24 justify-center">
+          <a
+            href="/docs/nursery-primary-admission.pdf"
+            download
+            className="flex items-center gap-3 bg-[#FFDE59] text-blue-900 px-6 py-4 rounded-xl font-semibold hover:bg-yellow-300 transition w-fit"
+          >
+            <FileText />
+            Download the Nursery and Primary Admission Requirements
+          </a>
+          <a
+            href="/docs/lower-secondary-admission.pdf"
+            download
+            className="flex items-center gap-3 bg-[#FFDE59] text-blue-900 px-6 py-4 rounded-xl font-semibold hover:bg-yellow-300 transition w-fit"
+          >
+            <FileText />
+            Download the Lower Secondary Admission Requirements
+          </a>
+        </div>
 
+        {/* Admission Process */}
         <h3 className="text-3xl font-bold text-[#0AB0EE] mb-8 text-center">
           Admission Process
         </h3>
@@ -264,7 +211,7 @@ function Admission() {
           className="bg-white rounded-3xl shadow-lg p-12 mb-24"
         >
           <h3 className="text-3xl font-bold text-[#0AB0EE] mb-8 text-center">
-            Contact Person
+            Admission Contact Person
           </h3>
           <div className="flex flex-col md:flex-row items-center gap-8 justify-center">
             <img
@@ -276,62 +223,12 @@ function Admission() {
               <h4 className="text-xl font-bold text-blue-900">
                 Emilie Munyakazi
               </h4>
-              <p className="text-gray-600 mb-2">Admissions Officer</p>
+              <p className="text-gray-600 mb-2">Office and Finance Manager</p>
               <p className="text-gray-600">Phone: +250 782 029 655</p>
               <p className="text-gray-600">
                 Email: emilie@apertnerineducation.org
               </p>
             </div>
-          </div>
-        </motion.div>
-
-        {/* Programmes & Projects Table with Badges */}
-        {/* Programmes & Projects - Accordion Style */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-24"
-        >
-          <h3 className="text-3xl font-bold text-[#7ED956] mb-8 text-center">
-            Programmes and Projects at Umubano Academy
-          </h3>
-
-          <div className="space-y-4 max-w-4xl mx-auto">
-            {programmes.map((item, i) => (
-              <div
-                key={i}
-                className="border rounded-2xl shadow-sm overflow-hidden"
-              >
-                <button
-                  onClick={() => toggle(i)}
-                  className="w-full flex justify-between items-center p-5 bg-gray-50 hover:bg-gray-100 text-left"
-                >
-                  <div>
-                    <h4 className="font-semibold text-blue-900">{item.name}</h4>
-                    <span
-                      className={`mt-1 inline-block px-3 py-1 rounded-full text-sm font-semibold ${typeColors[item.type]}`}
-                    >
-                      {item.type}
-                    </span>
-                  </div>
-                  {/* Replace the + / - with dropdown icon */}
-                  <ChevronDown
-                    className={`text-gray-500 transition-transform duration-300 ${
-                      openIndex === i ? "rotate-180" : "rotate-0"
-                    }`}
-                    size={24}
-                  />
-                </button>
-
-                {openIndex === i && (
-                  <div className="p-5 bg-white text-gray-700">
-                    {item.description}
-                  </div>
-                )}
-              </div>
-            ))}
           </div>
         </motion.div>
       </div>

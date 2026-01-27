@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X, PhoneCall, Mail, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "../../assets/UALOGO.png";
+import logo from "../../assets/mylogoes.png";
 import { Link } from "react-router-dom";
 
 function NavBar() {
@@ -21,55 +21,80 @@ function NavBar() {
       ],
     },
     { name: "Admissions", type: "route", path: "/admissions" },
-    { name: "News", type: "id", path: "news" },
-    { name: "Events and Gallery", type: "id", path: "events" },
-    { name: "Contact", type: "id", path: "contact" },
+    { name: "News and Announcement", type: "hash", path: "/#news" },
+    { name: "School Events and Gallery", type: "hash", path: "/#events" },
+    { name: "Contact Us", type: "hash", path: "/#contact" },
   ];
 
   return (
     <>
       {/* Top Info Bar */}
-      <div className="hidden md:flex justify-between items-center px-8 py-2 bg-[#FFDE59] text-sm">
-        <div className="flex items-center gap-6">
-          <span className="flex items-center gap-2 text-xl text-black font-bold">
-            <Phone size={20} className="text-[#7ED956]" />
-            +250 782029655
-          </span>
-          <span className="flex items-center gap-2 text-xl text-black font-bold">
-            <Mail size={20} className="text-[#7ED956]" />
-            info@umubanoacademy.rw
-          </span>
-        </div>
-        <span className="text-xl text-black font-bold">
-          Excellence in Education
-        </span>
-      </div>
+      {/* Top Info Bar */}
+<div className="hidden md:flex justify-between items-center px-8 py-2 bg-[#FFDE59] text-sm">
+  <div className="flex items-center gap-6">
+    
+    {/* Phone + WhatsApp */}
+    <span className="flex items-center gap-2 text-xl text-black font-bold">
+      {/* WhatsApp Icon */}
+      <a
+        href="https://wa.me/250783523189"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-green-600 hover:scale-110 transition-transform"
+        title="Chat with us on WhatsApp"
+      >
+        <MessageCircle size={22} />
+      </a>
+
+      <a
+        href="tel:+250783523189"
+        className="hover:text-blue-900 transition"
+      >
+        +250 783 523 189
+      </a>
+
+     
+    </span>
+
+    {/* Email */}
+    <span className="flex items-center gap-2 text-xl text-black font-bold">
+      <Mail size={20} className="text-[#7ED956]" />
+      <a
+        href="mailto:info@umubanoacademy.rw"
+        className="hover:text-blue-900 transition"
+      >
+        info@umubanoacademy.rw
+      </a>
+    </span>
+  </div>
+
+  <span className="text-xl text-black font-bold">
+    Excellence in Education
+  </span>
+</div>
+
 
       {/* Main Navbar */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl shadow-sm">
+      <header className="sticky top-0 z-50 bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-20">
+
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
-              <img
-                src={logo}
-                alt="Umubano Academy Logo"
-                className="w-16 h-16 object-contain"
-              />
+            <Link to="/">
+              <img src={logo} alt="Logo" className="w-16 h-16" />
             </Link>
 
             {/* Desktop Menu */}
             <nav className="hidden lg:flex items-center gap-10">
               {navLinks.map((link) => {
-                if (link.type === "route") {
+                if (link.type === "route" || link.type === "hash") {
                   return (
                     <Link
                       key={link.name}
                       to={link.path}
-                      className="relative text-gray-700 font-medium hover:text-blue-900 transition group"
+                      className="text-gray-700 font-medium hover:text-blue-900 transition"
                     >
                       {link.name}
-                      <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-900 transition-all group-hover:w-full" />
                     </Link>
                   );
                 }
@@ -77,27 +102,15 @@ function NavBar() {
                 if (link.type === "dropdown") {
                   return (
                     <div key={link.name} className="relative group">
-                      {/* Trigger */}
-                      <span className="cursor-pointer text-gray-700 font-medium hover:text-blue-900 transition">
+                      <span className="cursor-pointer text-gray-700 font-medium">
                         {link.name}
                       </span>
-
-                      {/* Dropdown */}
-                      <div
-                        className="
-                          absolute top-full left-0 mt-2 w-52
-                          bg-white shadow-lg rounded-xl
-                          opacity-0 invisible
-                          group-hover:opacity-100 group-hover:visible
-                          transition-all duration-200
-                          z-50
-                        "
-                      >
+                      <div className="absolute top-full left-0 mt-2 w-52 bg-white shadow-lg rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition z-50">
                         {link.subLinks.map((sub) => (
                           <Link
                             key={sub.name}
                             to={sub.path}
-                            className="block px-6 py-3 text-gray-700 hover:bg-blue-100 transition rounded-lg"
+                            className="block px-6 py-3 hover:bg-blue-100"
                           >
                             {sub.name}
                           </Link>
@@ -107,34 +120,21 @@ function NavBar() {
                   );
                 }
 
-                return (
-                  <a
-                    key={link.name}
-                    href={`#${link.path}`}
-                    className="text-gray-700 font-medium hover:text-blue-900 transition"
-                  >
-                    {link.name}
-                  </a>
-                );
+                return null;
               })}
-            </nav>
 
-            {/* CTA */}
-            <div className="hidden lg:flex">
+              {/* ✅ Admin Login Button Desktop */}
               <Link
                 to="/login"
-                className="bg-[#0AB0EE] text-white px-6 py-3 rounded-xl font-medium shadow-lg hover:shadow-xl transition"
+                className="ml-6 bg-[#0AB0EE] text-white px-6 py-3 rounded-xl font-medium shadow-lg hover:shadow-xl transition"
               >
                 Admin Login
               </Link>
-            </div>
+            </nav>
 
             {/* Mobile Menu Button */}
-            <button
-              onClick={() => setOpen(!open)}
-              className="lg:hidden text-blue-900"
-            >
-              {open ? <X size={30} /> : <Menu size={30} />}
+            <button onClick={() => setOpen(!open)} className="lg:hidden">
+              {open ? <X /> : <Menu />}
             </button>
           </div>
         </div>
@@ -143,20 +143,18 @@ function NavBar() {
         <AnimatePresence>
           {open && (
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               className="lg:hidden bg-white shadow-xl"
             >
-              <div className="flex flex-col px-6 py-6 gap-6">
+              <div className="flex flex-col p-6 gap-6">
                 {navLinks.map((link) => {
-                  if (link.type === "route") {
+                  if (link.type === "route" || link.type === "hash") {
                     return (
                       <Link
                         key={link.name}
                         to={link.path}
-                        className="text-lg font-medium text-gray-700 hover:text-blue-900"
                         onClick={() => setOpen(false)}
                       >
                         {link.name}
@@ -166,15 +164,13 @@ function NavBar() {
 
                   if (link.type === "dropdown") {
                     return (
-                      <div key={link.name} className="flex flex-col gap-2">
-                        <span className="text-lg font-medium text-gray-700">
-                          {link.name}
-                        </span>
+                      <div key={link.name}>
+                        <span>{link.name}</span>
                         {link.subLinks.map((sub) => (
                           <Link
                             key={sub.name}
                             to={sub.path}
-                            className="pl-4 text-gray-600 hover:text-blue-900"
+                            className="block pl-4"
                             onClick={() => setOpen(false)}
                           >
                             {sub.name}
@@ -184,24 +180,16 @@ function NavBar() {
                     );
                   }
 
-                  return (
-                    <a
-                      key={link.name}
-                      href={`#${link.path}`}
-                      className="text-lg font-medium text-gray-700 hover:text-blue-900"
-                      onClick={() => setOpen(false)}
-                    >
-                      {link.name}
-                    </a>
-                  );
+                  return null;
                 })}
 
+                {/* ✅ Admin Login Mobile */}
                 <Link
                   to="/login"
-                  className="mt-4 text-center bg-blue-900 text-white py-3 rounded-xl font-medium"
+                  className="mt-4 text-center bg-[#0AB0EE] text-white py-3 rounded-xl font-medium"
                   onClick={() => setOpen(false)}
                 >
-                  Login
+                  Admin Login
                 </Link>
               </div>
             </motion.div>

@@ -13,23 +13,7 @@ import nurseryImg from "../../assets/gallery/image7.JPG";
 import primaryImg from "../../assets/gallery/image5.JPG";
 import secondaryImg from "../../assets/gallery/image1.JPG";
 
-// Partners logos
-import p1 from "../../assets/partners/AEGIS-TRUST.jpg";
-import p2 from "../../assets/partners/APIE.jpg";
-import p3 from "../../assets/partners/Kicukiro-District.jpg";
-import p4 from "../../assets/partners/Lef-Pillon-Trust.jpg";
-import p5 from "../../assets/partners/MINEDUC.jpg";
-import p6 from "../../assets/partners/NCPD.jpg";
-import p7 from "../../assets/partners/NESA.png";
-import p8 from "../../assets/partners/REB.png";
-import p9 from "../../assets/partners/SHHS.png";
-import p10 from "../../assets/partners/Souter-Foundation.jpg";
-import p11 from "../../assets/partners/The-Big-Give.png";
-import p12 from "../../assets/partners/UA-LOGO.png";
-import p13 from "../../assets/partners/Victoria-League.jpg";
-
 function Academic() {
-  const partners = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13];
   const calendar = [
     {
       activity: "Term I",
@@ -37,14 +21,14 @@ function Academic() {
       end: "19/12/2025",
       duration: "15 weeks",
     },
-    { activity: "Term I Holidays", start: "-", end: "-", duration: "2 weeks" },
+    { activity: "Term I Hopdays", start: "-", end: "-", duration: "2 weeks" },
     {
       activity: "Term II",
       start: "05/01/2026",
       end: "03/04/2026",
       duration: "13 weeks",
     },
-    { activity: "Term II Holidays", start: "-", end: "-", duration: "2 weeks" },
+    { activity: "Term II Hopdays", start: "-", end: "-", duration: "2 weeks" },
     {
       activity: "Term III",
       start: "20/04/2026",
@@ -52,7 +36,7 @@ function Academic() {
       duration: "11 weeks",
     },
     {
-      activity: "Term III Holidays",
+      activity: "Term III Hopdays",
       start: "-",
       end: "-",
       duration: "2 months",
@@ -63,36 +47,38 @@ function Academic() {
   const schoolLevels = [
     {
       name: "Nursery",
-      grade: "KG1 - KG3",
+      grade: "N1 - N3",
       age: "Ages 3-5",
       description:
         "Foundation stage focusing on play-based learning and social skills.",
       img: nurseryImg,
-      link: "/education/nursery",
+      Link: "/nursery",
     },
     {
       name: "Primary",
-      grade: "Grade 1 - Grade 6",
+      grade: "P1 - P6",
       age: "Ages 6-12",
       description:
-        "Building literacy, numeracy and social skills in a supportive environment.",
+        "Building pteracy, numeracy and social skills in a supportive environment.",
       img: primaryImg,
-      link: "/primary",
+      Link: "/primary",
     },
     {
       name: "Lower Secondary",
       grade: "S1 - S3",
       age: "Ages 13-15",
       description:
-        "Preparing students for senior secondary with a broad curriculum and life skills.",
+        "Preparing students for senior secondary with a broad curriculum and pfe skills.",
       img: secondaryImg,
-      link: "/education/lower-secondary",
+      Link: "/lower-secondary",
     },
   ];
 
   const addons = [
-    { title: "Primary & Nursery", file: primaryPdf },
-    { title: "Secondary", file: secondaryPdf },
+    { title: "Primary and Nursery text book", file: primaryPdf },
+    { title: "Secondary text book", file: secondaryPdf },
+    { title: "Primary and Nursery text book", file: primaryPdf },
+    { title: "Secondary text book", file: secondaryPdf },
   ];
 
   const academicActivities = [
@@ -116,7 +102,7 @@ function Academic() {
             together.
           </p>
           <p className="mt-3">
-            At the core of our ethos is the belief that each child is unique and
+            At the core of our ethos is the bepef that each child is unique and
             should be viewed from a strengths-based perspective.
           </p>
         </>
@@ -125,26 +111,26 @@ function Academic() {
     {
       title: "Co-curricular Activities",
       content: (
-        <ul className="list-disc pl-6 space-y-2">
-          <li>
+        <ul className="pst-disc pl-6 space-y-2">
+          <p>
             <strong>Free Space:</strong> Mentorship for boys and girls
             separately.
-          </li>
-          <li>
+          </p>
+          <p>
             <strong>Circle Meetings:</strong> House-based learner meetings led
             by P6 and S3 leaders.
-          </li>
-          <li>
+          </p>
+          <p>
             <strong>Whole School House System:</strong> Promotes belonging,
             leadership and role models.
-          </li>
-          <li>Itorero – Rwandan cultural values and patriotism</li>
-          <li>Clubs and Sports</li>
-          <li>Creative Arts</li>
-          <li>Trips and Outings</li>
-          <li>Careers Guidance</li>
-          <li>Guest Speakers</li>
-          <li>Competitions and Special Performances</li>
+          </p>
+          <p>Itorero – Rwandan cultural values and patriotism</p>
+          <p>Clubs and Sports</p>
+          <p>Creative Arts</p>
+          <p>Trips and Outings</p>
+          <p>Careers Guidance</p>
+          <p>Guest Speakers</p>
+          <p>Competitions and Special Performances</p>
         </ul>
       ),
     },
@@ -153,12 +139,12 @@ function Academic() {
       content: (
         <>
           <p>
-            Teaching and learning at UA is learner-centred and aligned with the
+            Teaching and learning at UA is learner-centred and apgned with the
             Competence-Based Curriculum.
           </p>
           <p className="mt-3">
             Education for Positive Peace strategies help learners grow
-            holistically.
+            hopstically.
           </p>
           <p className="mt-3">
             Inclusive planning, differentiation and data-driven instruction
@@ -175,23 +161,23 @@ function Academic() {
             Assessment is an integral part of instruction and guides decisions
             for learners, teachers and parents.
           </p>
-          <ul className="list-disc pl-6 mt-3 space-y-2">
-            <li>Assessment for learning</li>
-            <li>Assessment of learning (mid-term, end-of-unit, end-of-term)</li>
-            <li>
+          <ul className="pst-disc pl-6 mt-3 space-y-2">
+            <p>Assessment for learning</p>
+            <p>Assessment of learning (mid-term, end-of-unit, end-of-term)</p>
+            <p>
               Term one set by school, term two by district, term three by NESA
               (except candidate classes)
-            </li>
+            </p>
           </ul>
         </>
       ),
     },
     {
-      title: "Personalised Target Setting and Progress Tracking",
+      title: "Personapsed Target Setting and Progress Tracking",
       content: (
         <>
           <p>
-            Teachers use prior attainment data to set ambitious but realistic
+            Teachers use prior attainment data to set ambitious but reapstic
             targets for every learner.
           </p>
           <p className="mt-3">
@@ -199,7 +185,7 @@ function Academic() {
             Secondary level.
           </p>
           <p className="mt-3 font-semibold">
-            Learners never set failing targets — targets must motivate success.
+            Learners never set faipng targets — targets must motivate success.
           </p>
         </>
       ),
@@ -218,12 +204,8 @@ function Academic() {
           className="text-center max-w-3xl mx-auto mb-20"
         >
           <h2 className="text-4xl font-bold text-[#0AB0EE] mb-4">
-            Academic Calendar and Teaching and Learning Resources
+            Academic Calendar
           </h2>
-          <p className="text-gray-600 text-lg">
-            Stay up-to-date with all school events, exams, and important dates.
-            Download important documents for your academic journey.
-          </p>
         </motion.div>
 
         {/* Calendar Table */}
@@ -248,7 +230,7 @@ function Academic() {
                 <tr
                   key={i}
                   className={
-                    row.activity.includes("Holidays")
+                    row.activity.includes("Hopdays")
                       ? "bg-[#FFDE59]"
                       : "border-b"
                   }
@@ -308,7 +290,7 @@ function Academic() {
                 transition={{ duration: 0.4 }}
                 className="group bg-white rounded-2xl shadow-md p-6"
               >
-                <summary className="cursor-pointer list-none flex justify-between items-center text-lg font-semibold text-[#7ED956]">
+                <summary className="cursor-pointer pst-none flex justify-between items-center text-lg font-semibold text-[#7ED956]">
                   {item.title}
                   <span className="transition-transform group-open:rotate-180">
                     ⌄
@@ -340,8 +322,8 @@ function Academic() {
                 <tr key={i} className="border-b">
                   <td className="p-4 font-semibold">
                     <Link
-                      to={level.link}
-                      className="text-blue-900 hover:underline"
+                      to={level.Link}
+                      className="text-blue-900 hover:underpne"
                     >
                       {level.name}
                     </Link>
@@ -356,61 +338,28 @@ function Academic() {
         </div>
 
         {/* School Levels Images */}
-<div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-  {schoolLevels.map((level) => (
-    <Link
-      key={level.name}
-      to={level.link}
-      className="group block"
-    >
-      <div className="overflow-hidden rounded-2xl">
-        <img
-          src={level.img}
-          alt={level.name}
-          className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-      </div>
-
-      <div className="mt-4 text-center">
-        <h4 className="text-xl font-semibold text-[#0AB0EE]">
-          {level.name}
-        </h4>
-        <p className="text-sm text-gray-600">
-          {level.grade} · {level.age}
-        </p>
-      </div>
-    </Link>
-  ))}
-</div>
-
-
-        {/* Our Partners */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-24"
-        >
-          <h3 className="text-4xl font-bold text-[#FFDE59] mb-8 text-center py-14">
-            Our Partners
-          </h3>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center">
-            {partners.map((logo, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-xl shadow-md p-4 flex items-center justify-center hover:shadow-xl transition"
-              >
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          {schoolLevels.map((level) => (
+            <Link key={level.name} to={level.Link} className="group block">
+              <div className="overflow-hidden rounded-2xl">
                 <img
-                  src={logo}
-                  alt={`Partner ${i + 1}`}
-                  className="max-h-20 object-contain"
+                  src={level.img}
+                  alt={level.name}
+                  className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-            ))}
-          </div>
-        </motion.div>
+
+              <div className="mt-4 text-center">
+                <h4 className="text-xl font-semibold text-[#0AB0EE]">
+                  {level.name}
+                </h4>
+                <p className="text-sm text-gray-600">
+                  {level.grade} · {level.age}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -17,7 +17,7 @@ function Hero() {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/95 via-blue-900/70 to-blue-900/30"></div>
+      <div className="absolute inset-0"></div>
 
       {/* Bottom Content */}
       <div className="relative z-10 h-full flex items-end">
@@ -38,21 +38,21 @@ function Hero() {
             <div className="flex flex-col sm:flex-row gap-5">
               <Link
                 to="/admissions"
-                className="bg-[#7ED956] text-blue-900 px-10 py-4 rounded-2xl font-bold text-lg shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-[#8ff06a]"
+                className="bg-[#7ED956] text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-2xl transition-all duration-300 hover:bg-[#0AB0EE] hover:text-blue-900 hover:scale-105"
               >
                 Admissions
               </Link>
 
               <Link
                 to="/academic"
-                className="px-10 py-4 rounded-2xl font-semibold text-lg text-white border border-white/40 backdrop-blur-md bg-white/10 shadow-xl transition-all duration-300 hover:bg-[#0AB0EE] hover:text-blue-900 hover:scale-105"
+                className="px-10 py-4 rounded-2xl font-semibold text-lg text-white border border-white/40 backdrop-blur-md bg-[#7ED956] shadow-xl transition-all duration-300 hover:bg-[#0AB0EE] hover:text-blue-900 hover:scale-105"
               >
                 Explore our Education
               </Link>
 
               <a
                 href="#whyus"
-                className="px-10 py-4 rounded-2xl font-semibold text-lg text-white border border-white/40 backdrop-blur-md bg-white/10 shadow-xl transition-all duration-300 hover:bg-[#0AB0EE] hover:text-blue-900 hover:scale-105"
+                className="px-10 py-4 rounded-2xl font-semibold text-lg text-white border border-white/40 backdrop-blur-md bg-[#7ED956] shadow-xl transition-all duration-300 hover:bg-[#0AB0EE] hover:text-blue-900 hover:scale-105"
               >
                 Why choose Umubano Academy?
               </a>

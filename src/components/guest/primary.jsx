@@ -7,44 +7,86 @@ import phaseLeader from "../../assets/gallery/image6.JPG";
 function Primary() {
   return (
     <section className="bg-gray-50">
-      {/* Header Image */}
-      <div className="relative w-full h-64 md:h-96">
-        <img src={primaryHeader} alt="Primary" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-center text-white">
-          <h1 className="text-4xl font-bold">Primary</h1>
-          <p className="text-lg">Ages: 6-12</p>
+      {/* Hero Section */}
+      <div className="relative w-full h-72 md:h-[420px]">
+        <img
+          src={primaryHeader}
+          alt="Primary"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30 flex flex-col justify-center items-center text-center text-white">
+          <h1 className="text-4xl md:text-5xl font-bold mb-2">Primary</h1>
+          <p className="text-lg md:text-xl">Ages 6 – 12</p>
         </div>
       </div>
 
-      {/* Welcome Section */}
-      <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row gap-8 items-center">
-        <div className="md:w-2/3">
-          <h2 className="text-3xl font-bold text-[#0AB0EE] mb-4">
-            A warm welcome to Umubano Academy Primary!
-          </h2>
-          <p className="text-gray-700 mb-4">
-            Our Primary section develops academic excellence, creativity, and social skills.
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-6 py-20 space-y-20">
+        
+        {/* Welcome + Leader */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+          
+          {/* Welcome */}
+          <div className="lg:col-span-2">
+            <h2 className="text-3xl font-bold text-[#0AB0EE] mb-4">
+              A Warm Welcome to Umubano Academy Primary
+            </h2>
+            <p className="text-gray-700 mb-6 leading-relaxed">
+              Our Primary section nurtures academic excellence, creativity,
+              independence, and social responsibility in a supportive and
+              engaging learning environment.
+            </p>
+
+            <Link
+              to="/admissions"
+              className="inline-flex items-center gap-2 bg-[#0AB0EE] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#7ED956] transition shadow"
+            >
+              <FileText size={18} /> Admission Requirements
+            </Link>
+          </div>
+
+          {/* Phase Leader */}
+          <div className="text-center bg-white rounded-2xl shadow-md p-8">
+            <img
+              src={phaseLeader}
+              alt="Primary Phase Leader"
+              className="w-40 h-40 rounded-full object-cover mx-auto mb-4"
+            />
+            <p className="font-semibold text-lg">Jane Doe</p>
+            <p className="text-gray-500">Primary Phase Leader</p>
+          </div>
+        </div>
+
+        {/* Individualised Learning */}
+        <div className="bg-white rounded-3xl shadow-md p-10">
+          <h3 className="text-3xl font-bold text-[#7ED956] mb-4">
+            Individualised Learning
+          </h3>
+          <p className="text-gray-700 leading-relaxed max-w-3xl">
+            We recognise that every child learns differently. Our teaching
+            approach adapts to each learner’s pace, interests, and strengths,
+            ensuring personalised support and meaningful progress.
           </p>
-          <Link
-            to="/admissions"
-            className="inline-flex items-center gap-2 text-blue-900 font-semibold hover:underline"
-          >
-            <FileText /> Admission Requirements
-          </Link>
         </div>
-        <div className="md:w-1/3 text-center">
-          <img src={phaseLeader} alt="Phase Leader" className="w-48 h-48 rounded-full object-cover mx-auto mb-2" />
-          <p className="font-semibold">Jane Doe</p>
-          <p className="text-gray-500">Primary Phase Leader</p>
-        </div>
-      </div>
 
-      {/* Individualised Learning */}
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <h2 className="text-3xl font-bold text-[#7ED956] mb-4">Individualised Learning</h2>
-        <p className="text-gray-700">
-          We cater to each child’s learning pace, interests, and strengths, using personalized support and creative teaching strategies.
-        </p>
+        {/* Key Stats */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          
+          <div className="bg-white rounded-2xl shadow-md p-8 text-center">
+            <h4 className="text-4xl font-bold text-[#0AB0EE] mb-2">1 : 2</h4>
+            <p className="text-gray-600 text-lg">
+              Staff to Student Support Ratio
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-md p-8 text-center">
+            <h4 className="text-4xl font-bold text-[#0AB0EE] mb-2">28 Students</h4>
+            <p className="text-gray-600 text-lg">
+              Maximum Students per Class
+            </p>
+          </div>
+
+        </div>
       </div>
     </section>
   );
