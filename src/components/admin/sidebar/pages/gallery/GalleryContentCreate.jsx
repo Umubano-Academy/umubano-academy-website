@@ -33,7 +33,7 @@ function GalleryContentCreate() {
       });
 
       // redirect after short delay
-      setTimeout(() => navigate("/admin/gallery-content"), 2000);
+      setTimeout(() => navigate("/admin/create-gallery-content"), 2000);
     } catch (error) {
       Swal.fire(
         "Error",

@@ -7,6 +7,7 @@ import News from "./News";
 import Contact from "./Contact";
 import WhyChooseUs from "./WhyCooseUs";
 import WelcomeSection from "./WelcomeSection";
+import Partners from "./Partners";
 
 function Home() {
   const location = useLocation();
@@ -30,6 +31,7 @@ function Home() {
       <WhyChooseUs />
       <section id="news">
         <News />
+        <Partners />
       </section>
       <section id="contact">
         <Contact />
