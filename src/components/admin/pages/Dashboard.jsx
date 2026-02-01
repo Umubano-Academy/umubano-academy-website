@@ -10,22 +10,25 @@ function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [deletingId, setDeletingId] = useState(null);
 
-  const fetchNews = async (page = 1) => {
-    try {
-      setLoading(true);
-      const res = await api.get(`/api/news/?page=${page}&limit=${meta.limit}`);
-      setNews(res.data.items);
-      setMeta(res.data.meta);
-    } catch (error) {
-      console.error("Failed to load news", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+ const fetchNews = async (page = 1) => {
+  try {
+    setLoading(true);
+    const res = await api.get(`/api/news/?page=${page}&limit=${meta.limit}`);
+
+    setNews(res.data.items || []);  
+    setMeta(res.data.meta || { page: 1, limit: 10, total: 0 });
+  } catch (error) {
+    console.error("Failed to load news", error);
+    setNews([]); //
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   useEffect(() => {
-    fetchNews(meta.page);
-  }, []);
+  fetchNews(1);
+}, []);
 
   const totalPages = Math.ceil(meta.total / meta.limit);
 
@@ -107,72 +110,75 @@ function Dashboard() {
               </tr>
             </thead>
 
-            <tbody>
-              {loading ? (
-                <tr>
-                  <td colSpan="5" className="py-12 text-center text-gray-400">
-                    Loading news...
-                  </td>
-                </tr>
-              ) : news.length === 0 ? (
-                <tr>
-                  <td colSpan="5" className="py-12 text-center text-gray-400">
-                    No news available
-                  </td>
-                </tr>
-              ) : (
-                news.map((item) => (
-                  <tr
-                    key={item.ID}
-                    className="border-b last:border-none hover:bg-gray-50 transition"
-                  >
-                    <td className="px-6 py-4 font-semibold text-gray-500">
-                      #{item.ID}
-                    </td>
+           <tbody>
+  {loading && (
+    <tr>
+      <td colSpan="5" className="py-12 text-center text-gray-400">
+        Loading news...
+      </td>
+    </tr>
+  )}
 
-                    <td className="px-6 py-4 font-medium text-gray-900">
-                      {item.Title}
-                    </td>
+  {!loading && news.length === 0 && (
+    <tr>
+      <td colSpan="5" className="py-16 text-center text-gray-400">
+        You have no news
+      </td>
+    </tr>
+  )}
 
-                    <td className="px-6 py-4 text-gray-600 max-w-md">
-                      <p className="line-clamp-2">{item.Content}</p>
-                    </td>
+  {!loading &&
+    news.length > 0 &&
+    news.map((item) => (
+      <tr
+        key={item.ID}
+        className="border-b last:border-none hover:bg-gray-50 transition"
+      >
+        <td className="px-6 py-4 font-semibold text-gray-500">
+          #{item.ID}
+        </td>
 
-                    <td className="px-6 py-4 text-gray-500">
-                      {new Date(item.CreatedAt).toLocaleDateString()}
-                    </td>
+        <td className="px-6 py-4 font-medium text-gray-900">
+          {item.Title}
+        </td>
 
-                    <td className="px-6 py-4">
-                      <div className="flex justify-end gap-2">
-                        <Link
-                          to={`/admin/news/${item.ID}`}
-                          title="View"
-                          className="p-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition"
-                        >
-                          <Eye size={16} />
-                        </Link>
+        <td className="px-6 py-4 text-gray-600 max-w-md">
+          <p className="line-clamp-2">{item.Content}</p>
+        </td>
 
-                        <button
-                          title="Edit"
-                          className="p-2 rounded-lg bg-green-50 text-green-600 hover:bg-green-100 transition"
-                        >
-                          <Pencil size={16} />
-                        </button>
+        <td className="px-6 py-4 text-gray-500">
+          {new Date(item.CreatedAt).toLocaleDateString()}
+        </td>
 
-                        <button
-                          title="Delete"
-                          disabled={deletingId === item.ID}
-                          onClick={() => handleDelete(item.ID)}
-                          className="p-2 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 transition disabled:opacity-50"
-                        >
-                          <Trash2 size={16} />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
+        <td className="px-6 py-4">
+          <div className="flex justify-end gap-2">
+            <Link
+              to={`/admin/news/${item.ID}`}
+              className="p-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition"
+            >
+              <Eye size={16} />
+            </Link>
+
+            <Link
+              to={`/admin/news/update/${item.ID}`}
+              className="p-2 rounded-lg bg-green-50 text-green-600 hover:bg-green-100 transition"
+            >
+              <Pencil size={16} />
+            </Link>
+
+            <button
+              disabled={deletingId === item.ID}
+              onClick={() => handleDelete(item.ID)}
+              className="p-2 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 transition disabled:opacity-50"
+            >
+              <Trash2 size={16} />
+            </button>
+          </div>
+        </td>
+      </tr>
+    ))}
+</tbody>
+
           </table>
         </div>
 

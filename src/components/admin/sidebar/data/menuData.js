@@ -20,21 +20,21 @@ const menuData = [
     id: "events",
     title: "eventss",
     label: "Events",
-    path: "/admin/eventss",
+    path: "/admin/events",
     icon: House,
   },
   {
     id: "Gallery",
-    title: "gallery",
+    title: "galleryContent",
     label: "Gallery",
-    path: "/admin/news",
+    path: "/admin/gellery-content",
     icon: Newspaper,
   },
   {
-    id: "staff",
-    title: "staff",
-    label: "Staff",
-    path: "/admin/admission",
+    id: "image",
+    title: "GalleryImage",
+    label: "InsertGallery",
+    path: "/admin/create-gallery-image",
     icon: CalendarArrowDown,
   },
   
@@ -45,13 +45,13 @@ const menuData = [
     path: "/admin/announcements",
     icon: MessageCircleMore,
   },
-  {
-    id: "messages",
-    title: "messages",
-    label: "Messages",
-    path: "/admin/messages",
-    icon: MessageCircleMore,
-  },
+  // {
+  //   id: "messages",
+  //   title: "messages",
+  //   label: "Messages",
+  //   path: "/admin/messages",
+  //   icon: MessageCircleMore,
+  // },
 ];
 
 

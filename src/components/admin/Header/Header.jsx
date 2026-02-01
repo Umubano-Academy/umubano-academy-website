@@ -1,13 +1,37 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, User, Cog, LogOut } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header({ sideBarCollapsed, onToggleSidebar }) {
+  const navigate = useNavigate();
   const [openDropdown, setOpenDropdown] = useState(null);
   const dropdownRef = useRef();
   const [userInfo, setUserInfo] = useState({
-    first_name: "John",
-    roles: "Admin",
+    user_name: "Guest",
+    roles: [],
   });
+
+  // Load user info from storage
+  useEffect(() => {
+    const loadUserInfo = () => {
+      // Try localStorage first, then sessionStorage
+      let userData = localStorage.getItem("user") || sessionStorage.getItem("user");
+      
+      if (userData) {
+        try {
+          const user = JSON.parse(userData);
+          setUserInfo({
+            user_name: user.user_name || "Guest",
+            roles: user.roles || [],
+          });
+        } catch (error) {
+          console.error("Error parsing user data:", error);
+        }
+      }
+    };
+
+    loadUserInfo();
+  }, []);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -21,8 +45,21 @@ function Header({ sideBarCollapsed, onToggleSidebar }) {
   }, []);
 
   const handleNavigate = (path) => {
-    console.log("Navigate to:", path);
+    navigate(path);
     setOpenDropdown(null);
+  };
+
+  const handleLogout = () => {
+    // Clear all stored data
+    localStorage.removeItem("token");
+    localStorage.removeItem("roles");
+    localStorage.removeItem("user");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("roles");
+    sessionStorage.removeItem("user");
+    
+    // Redirect to login
+    navigate("/login");
   };
 
   return (
@@ -57,28 +94,31 @@ function Header({ sideBarCollapsed, onToggleSidebar }) {
 
               <div className="hidden md:flex flex-col ml-2 text-left">
                 <p className="text-sm font-medium text-[#0AB0EE]">
-                  {userInfo?.first_name}
+                  {userInfo?.user_name}
                 </p>
-                <p className="text-xs text-[#7ED956]">{userInfo?.roles}</p>
+                <p className="text-xs text-[#7ED956] capitalize">
+                  {userInfo?.roles?.join(", ") || "User"}
+                </p>
               </div>
             </button>
 
             {openDropdown === "user" && (
               <div className="absolute right-0 mt-2 w-48 bg-white shadow-xl rounded-xl overflow-hidden z-50 border border-[#0AB0EE]/30">
-                <button
-                  onClick={() => handleNavigate("/marchant/myprofile")}
+                <Link
+                  to="/admin/myprofile"
                   className="flex items-center space-x-2 w-full px-4 py-2 hover:bg-[#FFDE59]/30 transition-colors"
                 >
                   <User className="w-4 h-4 text-[#0AB0EE]" /> <span>Profile</span>
-                </button>
-                <button
-                  onClick={() => handleNavigate("/marchant/update-profile")}
+                </Link>
+                <Link
+                 to="/admin/update-password"
                   className="flex items-center space-x-2 w-full px-4 py-2 hover:bg-[#FFDE59]/30 transition-colors"
                 >
                   <Cog className="w-4 h-4 text-[#0AB0EE]" /> <span>Settings</span>
-                </button>
+                </Link>
                 <button
-                  className="flex items-center space-x-2 w-full px-4 py-2 text-red-600 hover:bg-red-100 dark:hover:bg-red-800/30 transition-colors"
+                  onClick={handleLogout}
+                  className="flex items-center space-x-2 w-full px-4 py-2 text-red-600 hover:bg-red-100 transition-colors"
                 >
                   <LogOut className="w-4 h-4" /> <span>Logout</span>
                 </button>

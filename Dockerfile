@@ -1,6 +1,11 @@
 # Step 1: Build frontend
 FROM node:22 AS build
 WORKDIR /app
+
+# Accept build argument and set as environment variable
+ARG VITE_API_BASE_URL
+ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
+
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
@@ -17,6 +22,9 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy built files
 COPY --from=build /app/dist /usr/share/nginx/html
+
+# Expose port
+EXPOSE 8080
 
 # Start NGINX in foreground
 CMD ["nginx", "-g", "daemon off;"]
