@@ -1,16 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { motion, AnimatePresence } from "framer-motion";
+import api from "../../services/api"; // your Axios instance
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-import image1 from "../../assets/gallery/image1.JPG";
-import image2 from "../../assets/gallery/image2.JPG";
-import image3 from "../../assets/gallery/image3.JPG";
-import image4 from "../../assets/gallery/image4.JPG";
-import image5 from "../../assets/gallery/image5.JPG";
-import image6 from "../../assets/gallery/image6.JPG";
 
 /* Modal arrows (outside image) */
 const ModalArrow = ({ direction, onClick }) => (
@@ -28,29 +22,52 @@ function Event() {
   const [isOpen, setIsOpen] = useState(false);
   const [images, setImages] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const items = [
-    {
-      title: "Academic Excellence Awards",
-      description: "Celebrating outstanding academic performance.",
-      images: [image1, image2],
-    },
-    {
-      title: "Cultural & Talent Day",
-      description: "Showcasing creativity and culture.",
-      images: [image3, image4],
-    },
-    {
-      title: "Sports & Physical Activities",
-      description: "Encouraging teamwork and fitness.",
-      images: [image5, image6],
-    },
-    {
-      title: "Sports & Physical Activities",
-      description: "Encouraging teamwork and fitness.",
-      images: [image5, image6],
-    },
-  ];
+  // Fetch all gallery content and their images
+  const fetchGallery = async () => {
+    try {
+      setLoading(true);
+      const res = await api.get("/api/gallery/gallery-content");
+      const galleryItems = res.data.items;
+
+      // Fetch images for each content
+      const itemsWithImages = await Promise.all(
+        galleryItems.map(async (item) => {
+          try {
+            const imgRes = await api.get(
+              `/api/image/gallery-image?gallery_content_id=${item.ID}`
+            );
+            const imgs = imgRes.data.items.map((img) =>
+              img.ImageURL.startsWith("/")
+                ? `${import.meta.env.VITE_API_BASE_URL}${img.ImageURL}`
+                : `${import.meta.env.VITE_API_BASE_URL}/${img.ImageURL}`
+            );
+            return {
+              ...item,
+              images: imgs.length ? imgs : ["https://via.placeholder.com/300x200?text=No+Image"],
+            };
+          } catch (err) {
+            return {
+              ...item,
+              images: ["https://via.placeholder.com/300x200?text=No+Image"],
+            };
+          }
+        })
+      );
+
+      setItems(itemsWithImages);
+    } catch (error) {
+      console.error("Failed to fetch gallery content", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchGallery();
+  }, []);
 
   const modalSettings = {
     dots: true,
@@ -70,6 +87,14 @@ function Event() {
     setIsOpen(true);
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-gray-500">
+        Loading gallery content...
+      </div>
+    );
+  }
+
   return (
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
@@ -85,44 +110,39 @@ function Event() {
         </div>
 
         {/* Cards */}
-       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-  {items.map((item, idx) => (
-    <div
-      key={idx}
-      className="bg-white rounded-2xl shadow-lg overflow-hidden"
-    >
-      {/* Single preview image */}
-      <div
-        onClick={() => openModal(item.images, 0)}
-        className="relative h-64 cursor-pointer"
-      >
-        <img
-          src={item.images[0]}
-          alt={item.title}
-          className="w-full h-full object-cover"
-        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {items.map((item, idx) => (
+            <div key={idx} className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              {/* Single preview image */}
+              <div
+                onClick={() => openModal(item.images, 0)}
+                className="relative h-64 cursor-pointer"
+              >
+                <img
+                  src={item.images[0]}
+                  alt={item.Title}
+                  className="w-full h-full object-cover"
+                  onError={(e) => (e.target.src = "https://via.placeholder.com/300x200?text=No+Image")}
+                />
 
-        <div className="absolute inset-0 bg-black/30 hover:bg-black/50 transition flex items-center justify-center">
-          <span className="text-white font-semibold">
-            View Gallery
-          </span>
+                <div className="absolute inset-0 bg-black/30 hover:bg-black/50 transition flex items-center justify-center">
+                  <span className="text-white font-semibold">View Gallery</span>
+                </div>
+              </div>
+
+              {/* Title & description */}
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-semibold text-[#7ED956] mb-2">
+                  {item.Title}
+                </h3>
+                <p className="text-gray-600">{item.Description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Title & description */}
-      <div className="p-6 text-center">
-        <h3 className="text-xl font-semibold text-[#7ED956] mb-2">
-          {item.title}
-        </h3>
-        <p className="text-gray-600">{item.description}</p>
-      </div>
-    </div>
-  ))}
-</div>
-
-      </div>
-
-      {/* 🔥 MODAL */}
+      {/* Modal */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -132,7 +152,6 @@ function Event() {
             onClick={() => setIsOpen(false)}
             className="fixed inset-0 bg-black/20 backdrop-blur-sm z-50 flex items-center justify-center"
           >
-            {/* Stop close when clicking image */}
             <motion.div
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
@@ -148,6 +167,7 @@ function Event() {
                       src={img}
                       alt="Gallery view"
                       className="w-full max-h-[80vh] object-contain rounded-xl"
+                      onError={(e) => (e.target.src = "https://via.placeholder.com/800x600?text=No+Image")}
                     />
                   </div>
                 ))}
@@ -159,5 +179,4 @@ function Event() {
     </section>
   );
 }
-
 export default Event;

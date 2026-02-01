@@ -33,13 +33,20 @@ function Login() {
         password: formData.password,
       });
 
-      // assuming backend returns { token, user }
-      const { token } = res.data;
+      // Extract tokens and user data from nested response structure
+      const { access_token, refresh_token } = res.data.data.token;
+      const user = res.data.data.user;
 
       if (formData.remember) {
-        localStorage.setItem("token", token);
+        // Store in localStorage for persistent login
+        localStorage.setItem("access_token", access_token);
+        localStorage.setItem("refresh_token", refresh_token);
+        localStorage.setItem("user", JSON.stringify(user));
       } else {
-        sessionStorage.setItem("token", token);
+        // Store in sessionStorage for session-only login
+        sessionStorage.setItem("access_token", access_token);
+        sessionStorage.setItem("refresh_token", refresh_token);
+        sessionStorage.setItem("user", JSON.stringify(user));
       }
 
       navigate("/admin");

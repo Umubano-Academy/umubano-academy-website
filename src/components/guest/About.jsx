@@ -27,7 +27,6 @@ import p9 from "../../assets/partners/SHHS.png";
 import p10 from "../../assets/partners/Souter-Foundation.jpg";
 import p11 from "../../assets/partners/The-Big-Give.png";
 import p12 from "../../assets/partners/Victoria-League.jpg";
-import p13 from "../../assets/partners/Victoria-League.jpg";
 
 function AccordionItem({ policy }) {
   const [open, setOpen] = useState(false);
@@ -56,144 +55,101 @@ function About() {
   const toggle = (i) => {
     setOpenIndex(openIndex === i ? null : i);
   };
-  const partners = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13];
+  const partners = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12];
 
-  const programmes = [
-    {
-      name: "General Scholarship programme",
-      type: "Scholarship",
-      description:
-        "Provides financial support to talented students from vulnerable families to ensure access to quality education.",
-    },
-    {
-      name: "Girl Circle Scholarship programme",
-      type: "Scholarship",
-      description:
-        "Supports girls’ education through mentorship, financial aid, and leadership development initiatives.",
-    },
-    {
-      name: "Inclusion and Special Education Needs (SEN)",
-      type: "Special Needs",
-      description:
-        "Provides tailored academic, emotional, and social support to learners with special educational needs.",
-    },
-    {
-      name: "Whole School feeding programme",
-      type: "Programmes",
-      description:
-        "Ensures all learners receive daily nutritious meals to improve health, attendance, and academic performance.",
-    },
-    {
-      name: "After school care",
-      type: "Extra-Curricular",
-      description:
-        "Offers a safe and structured environment after school hours with supervised learning and recreational activities.",
-    },
-    {
-      name: "Summer camp",
-      type: "Extra-Curricular",
-      description:
-        "Provides enriching holiday programmes focused on creativity, teamwork, and personal development.",
-    },
-    {
-      name: "Learning tours",
-      type: "Extra-Curricular",
-      description:
-        "Organises educational trips to expose learners to real-world learning experiences beyond the classroom.",
-    },
-    {
-      name: "School Infrastructural project",
-      type: "Infrastructure",
-      description:
-        "Improves school facilities to create a safe, inclusive, and conducive learning environment.",
-    },
-    {
-      name: "Library project",
-      type: "Infrastructure",
-      description:
-        "Develops a well-resourced library to promote reading culture, research skills, and independent learning.",
-    },
-    {
-      name: "Creative Arts project",
-      type: "Extra-Curricular",
-      description:
-        "Encourages artistic expression through music, drama, visual arts, and creative performances.",
-    },
-    {
-      name: "Southhampstead High School: Think Global Act Local project",
-      type: "Programmes",
-      description:
-        "A global partnership project promoting international collaboration, citizenship, and local impact.",
-    },
-    {
-      name: "Grille Foundation - ICT in classrooms",
-      type: "Infrastructure",
-      description:
-        "Enhances digital learning by equipping classrooms with ICT tools and modern teaching technology.",
-    },
-    {
-      name: "Lef Pillon Foundation : SEN & UA Leadership Funding",
-      type: "Special Needs",
-      description:
-        "Supports inclusive education initiatives and leadership development through targeted funding.",
-    },
-    {
-      name: "Science Room",
-      type: "Infrastructure",
-      description:
-        "Provides a fully equipped science laboratory to enhance practical learning and scientific inquiry.",
-    },
-    {
-      name: "Girls Room",
-      type: "Infrastructure",
-      description:
-        "Creates a safe and supportive space dedicated to girls’ wellbeing and personal development.",
-    },
-    {
-      name: "Water purifying and dining project",
-      type: "Infrastructure",
-      description:
-        "Ensures access to clean drinking water and safe dining facilities for all learners.",
-    },
-    {
-      name: "Teacher Training (CPD)",
-      type: "CPD",
-      description:
-        "Continuous Professional Development programmes aimed at improving teaching quality and pedagogy.",
-    },
-    {
-      name: "UA Leadership Training",
-      type: "CPD",
-      description:
-        "Builds leadership capacity among staff through structured training and mentorship programmes.",
-    },
+ const programmes = [
+  {
+    name: "Umubano Academy Scholarship programme",
+    type: "Scholarship",
+    description:
+      "UA school provides scholarships to students who demonstrate good manners, strong academic performance, and come from financially disadvantaged backgrounds. This programme is supported/fundraised for by A Partner in Education (APIE). Selected students are from all school levels (Nursery, primary and lower secondary) and are supported until their final year at Umubano.",
+  },
+  {
+    name: "Girls Circle Scholarship programme",
+    type: "Scholarship",
+    description:
+      "Supported by UK/US donors, this programme targets specific girls in lower secondary who perform well but face financial constraints. Support continues even after graduation (S3).",
+  },
+  {
+    name: "Inclusion and Special Education Needs (SEN)",
+    type: "Special Needs",
+    description:
+      "UA welcomes all learners irrespective of background, race, gender, or intellectual capacities. A specialised SEN teacher supports learners individually and provides special arrangements for national examinations in partnership with NESA.",
+  },
+  {
+    name: "School Feeding",
+    type: "Programmes",
+    description:
+      "The school feeding programme has been enhanced with expanded kitchen space, providing healthy and nutritious meals daily, including breakfast and lunch.",
+  },
+  {
+    name: "After School Care",
+    type: "Extra-Curricular",
+    description:
+      "For nursery children finishing at 12:20, after school care provides supervised play, homework help, and rest while waiting for parents or siblings.",
+  },
+  {
+    name: "Summer Camp",
+    type: "Extra-Curricular",
+    description:
+      "Held during long holidays, offering students engaging activities like robotics, painting, musical instruments, taekwondo, and other creative and physical pursuits.",
+  },
+  {
+    name: "Learning Tours",
+    type: "Programmes",
+    description:
+      "Organises educational trips to strengthen understanding of topics, especially for candidate classes, and provide real-world experiences.",
+  },
+  {
+    name: "Library Project",
+    type: "Infrastructure",
+    description:
+      "A library equipped with academic resources, fiction & non-fiction books, laptops, and tablets to facilitate research and learning individually or as a class.",
+  },
+  {
+    name: "Creative Arts Project",
+    type: "Extra-Curricular",
+    description:
+      "Includes co-curricular activities such as traditional and modern dances, musical instruments like piano and drumming, drawing, and painting.",
+  },
+  {
+    name: "Southhampstead High School Collaboration",
+    type: "Programmes",
+    description:
+      "Collaboration with UK schools through projects like 'Think Global Act Local', promoting global awareness and local impact.",
+  },
+  {
+    name: "ICT in Classrooms",
+    type: "Infrastructure",
+    description:
+      "With Grille Foundation support, classrooms have projectors, soundbars, laptops, and tablets to enhance teaching and learning.",
+  },
+  {
+    name: "Special Education Needs (SEN) Programme",
+    type: "Special Needs",
+    description:
+      "A specialised SEN teacher works with other teachers to provide individualised support to learners with special educational needs.",
+  },
+  {
+    name: "Water Purifying and Dining Project",
+    type: "Infrastructure",
+    description:
+      "The school provides potable water throughout the day and expanded kitchen facilities to support the feeding programme.",
+  },
+  {
+    name: "Teacher Training (CPD)",
+    type: "CPD",
+    description:
+      "Weekly Continuous Professional Development sessions with external experts to improve teaching and learning.",
+  },
+  {
+    name: "School Infrastructural Projects",
+    type: "Infrastructure",
+    description:
+      "Ongoing construction projects include extension of the kitchen, girls’ room, science room, nursery toilets, and other school facilities.",
+  },
+];
 
-    // ===== APIE PROJECTS =====
-    {
-      name: "Enhancing Quality Instructions in Pre-primary (EQUIP)",
-      type: "Programmes",
-      description:
-        "Improves teaching quality in pre-primary education through teacher training and instructional support.",
-    },
-    {
-      name: "Education for Positive Peace (E4PP)",
-      type: "Programmes",
-      description:
-        "Promotes peace education, social cohesion, and positive values across the school community.",
-    },
-    {
-      name: "Maximising Potential (MaxPo) pilot",
-      type: "Programmes",
-      description:
-        "Supports learners in unlocking their full academic and personal potential through targeted interventions.",
-    },
-    {
-      name: "Personal Social Health and Education (PSHE) Syllabus",
-      type: "Programmes",
-      description:
-        "Strengthens learners’ wellbeing, health awareness, and social-emotional learning skills.",
-    },
-  ];
 
   const typeColors = {
     Scholarship: "bg-yellow-200 text-yellow-800",
@@ -209,21 +165,21 @@ function About() {
       title: "Head Teacher",
       name: "Robert Ukwiyimpundu",
       phone: "+250 783 523 189",
-      email: "kerotrub@gmail.com",
+      email: " rukwiyimpundu@umubanoacademy.rw",
       img: headImg,
     },
     {
-      title: "Deputy Head Teacher(acting)",
+      title: "Deputy Head Teacher(Acting)",
       name: "Jean Bosco Turatsinze",
       phone: "+250 726 130 707",
-      email: "jturansinze@gmail.com",
+      email: " jbturatsinze@umubanoacademy.rw",
       img: deputy,
     },
     {
-      title: "Office & Finance Manager (Acting)",
+      title: "Office & Finance Manager",
       name: "Emilie Munyakazi",
       phone: "+250 782 029 655",
-      email: "emilie@apertnerineducation.org",
+      email: "emunyakazi@umubanoacademy.rw",
       img: finance,
     },
   ];
@@ -470,16 +426,6 @@ function About() {
                 <p>
                   <span className="font-semibold text-blue-900">Email:</span>{" "}
                   ndabagav@yahoo.ie
-                </p>
-              </div>
-
-              <div className="bg-gray-50 p-5 rounded-xl">
-                <p className="font-semibold text-blue-900">
-                  Academic and Leadership Role
-                </p>
-                <p className="text-gray-600 text-sm mt-2">
-                  Associate Professor of Education Management, Policy and
-                  Planning at the University of Rwanda – College of Education.
                 </p>
               </div>
             </div>

@@ -11,14 +11,23 @@ import {
 import logo from "../../assets/mylogoes.png";
 
 const navLinks = [
-  { name: "Home", type: "route", path: "/" },
-  { name: "About Us", type: "route", path: "/aboutus" },
-  { name: "Education", type: "route", path: "/academic" },
-  { name: "Admissions", type: "route", path: "/admissions" },
-  { name: "News and Announcement", type: "hash", path: "/#news" },
-  { name: "School Events and Gallery", type: "hash", path: "/#events" },
-  { name: "Contact Us", type: "hash", path: "/#contact" },
-];
+    { name: "Home", type: "route", path: "/" },
+    { name: "About Us", type: "route", path: "/aboutus" },
+    {
+      name: "Education",
+      type: "dropdown",
+      subLinks: [
+        { name: "Teaching and Learning", path: "/academic" },
+        { name: "Nursery", path: "/nursery" },
+        { name: "Primary", path: "/primary" },
+        { name: "Lower Secondary", path: "/lower-secondary" },
+      ],
+    },
+    { name: "Admissions", type: "route", path: "/admissions" },
+    { name: "News and Announcement", type: "route", path: "/news-announcement" },
+    { name: "School Events and Gallery", type: "route", path: "/gallery" },
+    { name: "Contact Us", type: "route", path: "/contactus" },
+  ];
 
 function Footer() {
   return (

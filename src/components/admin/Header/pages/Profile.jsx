@@ -12,11 +12,26 @@ function Profile() {
     email: "",
   });
 
+  // 🔹 Get token from storage
+  const getToken = () => {
+    return (
+      localStorage.getItem("access_token") ||
+      sessionStorage.getItem("access_token")
+    );
+  };
+
   // 🔹 Fetch profile
   const fetchProfile = async () => {
     try {
       setLoading(true);
-      const res = await api.get("/api/auth/profile");
+      const token = getToken();
+
+      const res = await api.get("/api/auth/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
       const data = res.data.data;
 
       setProfile(data);
@@ -50,16 +65,30 @@ function Profile() {
     setSubmitting(true);
 
     try {
-      const res = await api.put("/api/auth/update-profile", {
-        username: formData.username,
-        email: formData.email,
-      });
+      const token = getToken();
+
+      const res = await api.put(
+        "/api/auth/update-profile",
+        {
+          username: formData.username,
+          email: formData.email,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       const updatedUser = res.data.data;
 
-      // Update stored user info
-      localStorage.setItem("user", JSON.stringify(updatedUser));
-      sessionStorage.setItem("user", JSON.stringify(updatedUser));
+      // Update stored user info in whichever storage is being used
+      if (localStorage.getItem("access_token")) {
+        localStorage.setItem("user", JSON.stringify(updatedUser));
+      }
+      if (sessionStorage.getItem("access_token")) {
+        sessionStorage.setItem("user", JSON.stringify(updatedUser));
+      }
 
       Swal.fire({
         icon: "success",
@@ -85,6 +114,14 @@ function Profile() {
     return (
       <div className="flex justify-center items-center min-h-[300px] text-gray-500">
         Loading profile...
+      </div>
+    );
+  }
+
+  if (!profile) {
+    return (
+      <div className="flex justify-center items-center min-h-[300px] text-gray-500">
+        No profile data available
       </div>
     );
   }
@@ -133,7 +170,7 @@ function Profile() {
           </label>
           <input
             type="text"
-            value={profile.roles.join(", ")}
+            value={profile?.roles?.join(", ") || "No roles assigned"}
             disabled
             className="w-full border border-gray-200 bg-gray-100 rounded-xl p-3 text-gray-500 cursor-not-allowed"
           />
@@ -153,4 +190,3 @@ function Profile() {
 }
 
 export default Profile;
-

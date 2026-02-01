@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Menu, X, PhoneCall, Mail, MessageCircle } from "lucide-react";
+import { Menu, X, Mail, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "../../assets/mylogoes.png";
 import { Link } from "react-router-dom";
+import logo from "../../assets/mylogoes.png";
 
 function NavBar() {
   const [open, setOpen] = useState(false);
@@ -21,78 +21,66 @@ function NavBar() {
       ],
     },
     { name: "Admissions", type: "route", path: "/admissions" },
-    { name: "News and Announcement", type: "hash", path: "/#news" },
-    { name: "School Events and Gallery", type: "hash", path: "/#events" },
-    { name: "Contact Us", type: "hash", path: "/#contact" },
+    { name: "News and Announcement", type: "route", path: "/news-announcement" },
+    { name: "School Events and Gallery", type: "route", path: "/gallery" },
+    { name: "Contact Us", type: "route", path: "/contactus" },
   ];
 
   return (
     <>
-      {/* Top Info Bar */}
-      {/* Top Info Bar */}
-<div className="hidden md:flex justify-between items-center px-8 py-2 bg-[#FFDE59] text-sm">
-  <div className="flex items-center gap-6">
-    
-    {/* Phone + WhatsApp */}
-    <span className="flex items-center gap-2 text-xl text-black font-bold">
-      {/* WhatsApp Icon */}
-      <a
-        href="https://wa.me/250783523189"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-green-600 hover:scale-110 transition-transform"
-        title="Chat with us on WhatsApp"
-      >
-        <MessageCircle size={22} />
-      </a>
+      {/* 🔶 Top Info Bar */}
+      <div className="hidden md:flex justify-between items-center px-8 py-2 bg-[#FFDE59] text-sm">
+        <div className="flex items-center gap-6">
+          {/* WhatsApp + Phone */}
+          <span className="flex items-center gap-2 text-xl text-black font-bold">
+            <a
+              href="https://wa.me/250783523189"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-600 hover:scale-110 transition-transform"
+            >
+              <MessageCircle size={22} />
+            </a>
+            <a href="tel:+250783523189" className="hover:text-blue-900 transition">
+              +250 783 523 189
+            </a>
+          </span>
 
-      <a
-        href="tel:+250783523189"
-        className="hover:text-blue-900 transition"
-      >
-        +250 783 523 189
-      </a>
+          {/* Email */}
+          <span className="flex items-center gap-2 text-xl text-black font-bold">
+            <Mail size={20} className="text-[#7ED956]" />
+            <a
+              href="mailto:info@umubanoacademy.rw"
+              className="hover:text-blue-900 transition"
+            >
+              info@umubanoacademy.rw
+            </a>
+          </span>
+        </div>
 
-     
-    </span>
+        <span className="text-xl text-black font-bold">
+          Excellence in Education
+        </span>
+      </div>
 
-    {/* Email */}
-    <span className="flex items-center gap-2 text-xl text-black font-bold">
-      <Mail size={20} className="text-[#7ED956]" />
-      <a
-        href="mailto:info@umubanoacademy.rw"
-        className="hover:text-blue-900 transition"
-      >
-        info@umubanoacademy.rw
-      </a>
-    </span>
-  </div>
-
-  <span className="text-xl text-black font-bold">
-    Excellence in Education
-  </span>
-</div>
-
-
-      {/* Main Navbar */}
+      {/* 🔷 Main Navbar */}
       <header className="sticky top-0 z-50 bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-20">
-
+          <div className="flex items-center justify-between h-20 gap-8">
             {/* Logo */}
-            <Link to="/">
+            <Link to="/" className="flex-shrink-0">
               <img src={logo} alt="Logo" className="w-16 h-16" />
             </Link>
 
-            {/* Desktop Menu */}
-            <nav className="hidden lg:flex items-center gap-10">
+            {/* 🖥 Desktop Menu */}
+            <nav className="hidden lg:flex items-center gap-8 flex-1 justify-center">
               {navLinks.map((link) => {
                 if (link.type === "route" || link.type === "hash") {
                   return (
                     <Link
                       key={link.name}
                       to={link.path}
-                      className="text-gray-700 font-medium hover:text-blue-900 transition"
+                      className="text-gray-700 font-medium hover:text-blue-900 transition whitespace-nowrap"
                     >
                       {link.name}
                     </Link>
@@ -102,19 +90,32 @@ function NavBar() {
                 if (link.type === "dropdown") {
                   return (
                     <div key={link.name} className="relative group">
-                      <span className="cursor-pointer text-gray-700 font-medium">
+                      <span className="cursor-pointer text-gray-700 font-medium hover:text-blue-900 transition whitespace-nowrap">
                         {link.name}
                       </span>
-                      <div className="absolute top-full left-0 mt-2 w-52 bg-white shadow-lg rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition z-50">
-                        {link.subLinks.map((sub) => (
-                          <Link
-                            key={sub.name}
-                            to={sub.path}
-                            className="block px-6 py-3 hover:bg-blue-100"
-                          >
-                            {sub.name}
-                          </Link>
-                        ))}
+
+                      {/* ✅ FIXED DROPDOWN */}
+                      <div
+                        className="
+                          absolute left-0 top-full
+                          w-56 bg-white shadow-lg rounded-xl
+                          opacity-0 invisible
+                          group-hover:opacity-100 group-hover:visible
+                          transition-all duration-200
+                          z-50
+                        "
+                      >
+                        <div className="py-2">
+                          {link.subLinks.map((sub) => (
+                            <Link
+                              key={sub.name}
+                              to={sub.path}
+                              className="block px-6 py-3 hover:bg-blue-100 transition"
+                            >
+                              {sub.name}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   );
@@ -122,24 +123,24 @@ function NavBar() {
 
                 return null;
               })}
-
-              {/* ✅ Admin Login Button Desktop */}
-              <Link
-                to="/login"
-                className="ml-6 bg-[#0AB0EE] text-white px-6 py-3 rounded-xl font-medium shadow-lg hover:shadow-xl transition"
-              >
-                Admin Login
-              </Link>
             </nav>
 
-            {/* Mobile Menu Button */}
+            {/* Admin Login Button */}
+            <Link
+              to="/login"
+              className="hidden lg:block bg-[#0AB0EE] text-white px-6 py-3 rounded-xl font-medium shadow-lg hover:shadow-xl transition flex-shrink-0"
+            >
+              Admin Login
+            </Link>
+
+            {/* 📱 Mobile Toggle */}
             <button onClick={() => setOpen(!open)} className="lg:hidden">
               {open ? <X /> : <Menu />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* 📱 Mobile Menu */}
         <AnimatePresence>
           {open && (
             <motion.div
@@ -165,12 +166,12 @@ function NavBar() {
                   if (link.type === "dropdown") {
                     return (
                       <div key={link.name}>
-                        <span>{link.name}</span>
+                        <span className="font-semibold">{link.name}</span>
                         {link.subLinks.map((sub) => (
                           <Link
                             key={sub.name}
                             to={sub.path}
-                            className="block pl-4"
+                            className="block pl-4 py-1"
                             onClick={() => setOpen(false)}
                           >
                             {sub.name}
@@ -183,7 +184,6 @@ function NavBar() {
                   return null;
                 })}
 
-                {/* ✅ Admin Login Mobile */}
                 <Link
                   to="/login"
                   className="mt-4 text-center bg-[#0AB0EE] text-white py-3 rounded-xl font-medium"
